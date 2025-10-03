@@ -1,0 +1,71 @@
+Proyecto;Tiempo;Max_Desplazamiento;Max_Von_Mises;Total_Reaction_Force_Norm;RST_Source
+DAIHATSU_TERIOS_2006_2018_TRA;1.0;"DPF displacement_1.s Field
+  Location: Nodal
+  Unit: mm
+  11625 entities 
+  Data: 1 components and 11625 elementary data 
+
+  Nodal
+  IDs                   data(mm)
+  ------------          ----------
+  2529                  6.545049e+01   
+                        
+  2532                  6.586272e+01   
+                        
+  2531                  6.575841e+01   
+                        
+  ...
+
+";"DPF stress_1.s Field
+  Location: Nodal
+  Unit: MPa
+  10748 entities 
+  Data: 6 components and 10748 elementary data 
+
+  Nodal
+  IDs                   data(MPa)
+  ------------          ----------
+  2529                  -6.536148e+01  -1.081370e+02  -3.395578e+02  6.993517e+01   7.456331e+02   -6.852562e+02  
+                        
+  2532                  -5.825890e+02  6.618873e+02   2.009684e+02   -3.066493e+00  -5.034621e+02  3.270806e+02   
+                        
+  2531                  -9.670388e+02  9.053941e+02   -1.184318e+00  8.408782e+01   -9.485255e+01  -1.282331e+02  
+                        
+  ...
+
+";0.0;E:\Trabajo_de_grado\2_Proyecto\3_Dataset_FEA_de_resortes_IMAL\Recolección\DAIHATSU_TERIOS_2006_2018_TRA\3_SIMULACION\DAIHATSU_TERIOS_2006_2018_TRAS_files\dp0\SYS\MECH\file.rst
+DAIHATSU_TERIOS_2006_2018_TRA;1.0;"DPF displacement_1.s Field
+  Location: Nodal
+  Unit: mm
+  24456 entities 
+  Data: 1 components and 24456 elementary data 
+
+  Nodal
+  IDs                   data(mm)
+  ------------          ----------
+  7928                  1.128121e+02   
+                        
+  7990                  1.121572e+02   
+                        
+  7989                  1.120907e+02   
+                        
+  ...
+
+";"DPF stress_1.s Field
+  Location: Nodal
+  Unit: MPa
+  21075 entities 
+  Data: 6 components and 21075 elementary data 
+
+  Nodal
+  IDs                   data(MPa)
+  ------------          ----------
+  5453                  9.438513e+01   -2.044917e+02  -1.032121e+02  5.194570e+02   -5.491975e+02  1.381541e+00   
+                        
+  5537                  9.672864e+01   -1.086339e+02  -9.176935e+00  6.388269e+02   -5.090122e+01  6.017435e+01   
+                        
+  5749                  1.688921e+02   -1.745697e+02  1.827494e+01   4.844337e+02   -2.848174e+01  4.328885e+01   
+                        
+  ...
+
+";0.0;E:\Trabajo_de_grado\2_Proyecto\3_Dataset_FEA_de_resortes_IMAL\Recolección\DAIHATSU_TERIOS_2006_2018_TRA\3_SIMULACION\DAIHATSU_TERIOS_2006_2018_TRAS_files\dp0\SYS-2\MECH\file.rst

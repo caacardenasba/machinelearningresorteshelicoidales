@@ -1,0 +1,84 @@
+import os
+import pandas as pd
+
+# Importamos las herramientas de PyAnsys para el postprocesamiento (DPF)
+from ansys.dpf import core as dpf
+from ansys.dpf.core import operators as ops
+import numpy as np
+
+
+def read_single_rst_file(rst_path):
+    """
+    Función para leer un archivo .rst, extraer datos clave
+    y reportar un resumen.
+    """
+    print(f"Iniciando la lectura del archivo: {rst_path}")
+
+    # 1. Conexión a la Data Source
+    try:
+        data_source = dpf.DataSources(rst_path)
+    except Exception as e:
+        print(f"ERROR: No se pudo cargar el archivo DPF. Asegúrate de que la ruta es correcta.")
+        print(f"Detalle del error: {e}")
+        return
+
+    # 2. Definición de Operadores
+    
+    # Obtener el objeto de Malla (Mesh)
+    mesh_op = ops.mesh.mesh_provider(data_sources=data_source)
+    mesh = mesh_op.outputs.mesh()
+    print(f"  - Malla cargada. Nodos: {mesh.nodes.n_nodes}, Elementos: {mesh.elements.n_elements}")
+
+    # Obtener los pasos de tiempo (Time Steps)
+    time_op = ops.result.time_freq_steps(data_sources=data_source)
+    all_time_steps = time_op.outputs.time_steps.array
+    print(f"  - Pasos de tiempo encontrados: {len(all_time_steps)} ({all_time_steps})")
+
+    if not all_time_steps.size:
+        print(" Advertencia: El archivo no contiene pasos de tiempo. Revisando si es un resultado estático...")
+        # Si no hay pasos de tiempo, usamos el primer (y único) paso por defecto.
+        time_steps_to_use = [1] 
+    else:
+        # Usaremos el último paso de tiempo para la prueba de extracción
+        time_steps_to_use = [all_time_steps[-1]]
+    
+    # 3. Prueba de Extracción: Desplazamiento Máximo en el último paso
+
+    # Operador para obtener los Desplazamientos
+    displacement_op = ops.result.displacement(data_sources=data_source,
+                                             time_scoping=time_steps_to_use)
+    # Operador para obtener la magnitud (Norma) de los Desplazamientos
+    displacement_norm_op = ops.math.norm(displacement_op)
+
+    # Obtenemos el contenedor de campos (Fields Container)
+    disp_fields_container = displacement_norm_op.outputs.fields_container()
+    
+    # Obtenemos el campo de datos del primer (y único) paso que extrajimos
+    field = disp_fields_container[0]
+    
+    # Calculamos el valor máximo
+    max_displacement = np.max(field.data)
+    
+    print("-" * 50)
+    print("¡Lectura exitosa!")
+    print(f"  - Paso de Tiempo Analizado: {time_steps_to_use[0]}")
+    print(f"  - Desplazamiento Máximo (Magnitud): {max_displacement:.4e} unidades.")
+    print("-" * 50)
+
+
+# ----------------------------------------------------------------------
+#                      VARIABLES A AJUSTAR
+# ----------------------------------------------------------------------
+
+# **AJUSTA ESTA RUTA:** Copia y pega la ruta COMPLETA a UN ÚNICO archivo .rst
+# (Ejemplo: C:\... \Proyecto_1\3_SIMULACION\dp0\SYS-1\MECH\file.rst)
+RST_FILE_PATH = r"E:\Trabajo_de_grado\2_Proyecto\3_Dataset_FEA_de_resortes_IMAL\Recolección\DAIHATSU_TERIOS_2006_2018_TRA\3_SIMULACION\DAIHATSU TERIOS 2006-2018 TRAS_files\dp0\SYS-1\MECH" 
+
+
+# Llamamos a la función principal
+if __name__ == "__main__":
+    # Verificamos si la ruta existe antes de intentar leer
+    if os.path.exists(RST_FILE_PATH):
+        read_single_rst_file(RST_FILE_PATH)
+    else:
+        print(f"Error: La ruta del archivo no existe. Por favor, verifica: {RST_FILE_PATH}")

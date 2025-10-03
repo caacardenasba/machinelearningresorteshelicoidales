@@ -1,0 +1,2216 @@
+
+ ANSYS Mechanical Premium                          
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *            ANSYS Release 17.0     LEGAL NOTICES             *
+ ***************************************************************
+ *                                                             *
+ * Copyright 2015 SAS IP, Inc.  All rights reserved.           *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of ANSYS, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the ANSYS, Inc. online documentation or the ANSYS, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * ANSYS, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * ANSYS, Inc. is a UL registered                              *
+ * ISO 9001:2008 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the ANSYS, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the ANSYS, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ Release 17.0
+     
+ Point Releases and Patches installed:   
+     
+ ANSYS, Inc. Products Release 17.0   
+ ANSYS Mechanical Products Release 17.0  
+ ANSYS Autodyn Release 17.0  
+ ANSYS LS-DYNA Release 17.0  
+ ANSYS AIM Release 17.0  
+ ANSYS CFX (includes ANSYS CFD-Post) Release 17.0
+ ANSYS Fluent (includes ANSYS CFD-Post) Release 17.0 
+ ANSYS TurboGrid Release 17.0
+ ANSYS Polyflow (includes ANSYS CFD-Post) Release 17.0   
+ ANSYS Forte Release 17.0
+ ANSYS ICEM CFD Release 17.0 
+ ANSYS Aqwa Release 17.0 
+ ANSYS Composite PrepPost Release 17.0   
+ ANSYS Icepak (includes ANSYS CFD-Post) Release 17.0 
+ AutoCAD Release 17.0
+ ACIS Release 17.0   
+ Catia, Version 4 Release 17.0   
+ Catia, Version 6 Release 17.0   
+ Creo Elements/Direct Modeling Release 17.0  
+ Inventor Release 17.0   
+ JTOpen Release 17.0 
+ NX Release 17.0 
+ Parasolid Release 17.0  
+ Creo Parametric (formerly Pro/ENGINEER) Release 17.0
+ Solid Edge Release 17.0 
+ SolidWorks Release 17.0 
+ ANSYS, Inc. License Manager Release 17.0
+
+
+          *****  ANSYS COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  DISTRIBUTED MEMORY PARALLEL REQUESTED
+       4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
+    TOTAL OF     4 CORES REQUESTED
+  MPI OPTION                   = INTELMPI
+  INPUT FILE NAME              = C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868\dummy.dat
+  OUTPUT FILE NAME             = C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868\solve.out
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+
+ RELEASE= Release 17.0         BUILD= 17.0      UP20151214   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=file0  09:59:25  NOV 18, 2024 CP=      0.344
+
+
+ PARAMETER _DS_PROGRESS =     999.0000000    
+
+ /INPUT FILE= ds.dat  LINE=       0
+
+
+
+ *** NOTE ***                            CP =       0.406   TIME= 09:59:25
+ The /CONFIG,NOELDB command is not valid in a Distributed ANSYS          
+ solution.  Command is ignored.                                          
+
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE=  9.99027778    
+
+ TITLE= 
+ DAIHATSU TERIOS 2006-2018 TRAS--Static Structural (C5)                        
+
+
+ SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868\
+
+ SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_SOLVERFILES_DIR(1) = C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\DAIHATSU TERIOS 2006-2018 TRAS_files\dp0\SYS-1\MECH\
+
+ SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_USERFILES_DIR(1) = C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\DAIHATSU TERIOS 2006-2018 TRAS_files\user_files\
+ --- Data in consistent NMM units. See Solving Units in the help system for more
+
+ MPA UNITS SPECIFIED FOR INTERNAL    
+  LENGTH      = MILLIMETERS (mm)
+  MASS        = TONNE (Mg)
+  TIME        = SECONDS (sec)
+  TEMPERATURE = CELSIUS (C)
+  TOFFSET     = 273.0
+  FORCE       = NEWTON (N)
+  HEAT        = MILLIJOULES (mJ)
+
+ INPUT  UNITS ARE ALSO SET TO MPA 
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 17.0     17.0     ***
+ DISTRIBUTED ANSYS Mechanical Premium                          
+
+ 00338920  VERSION=WINDOWS x64   09:59:25  NOV 18, 2024 CP=      0.406
+
+ DAIHATSU TERIOS 2006-2018 TRAS--Static Structural (C5)                        
+
+
+
+          ***** ANSYS ANALYSIS DEFINITION (PREP7) *****
+ *********** Nodes for the whole assembly ***********
+ *********** Elements for Body 1 "COPELA INFERIOR" ***********
+ *********** Send Body as a Rigid Body ***********
+ *********** Elements for Body 2 "COPELA SUPERIOR" ***********
+ *********** Send Body as a Rigid Body ***********
+ *********** Elements for Body 3 "RESORTE HEL DAIHATSU TERIOS II TRAS IMAL" ****
+ *********** Send User Defined Coordinate System(s) ***********
+ *********** Set Reference Temperature ***********
+ *********** Send Materials ***********
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 7 & 6
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 10 & 9
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 12 & 11
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 14 & 13
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 16 & 15
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 18 & 17
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 20 & 19
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 22 & 21
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 24 & 23
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 26 & 25
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 28 & 27
+ *********** Create Contact "Frictional - RESORTE HEL DAIHATSU TERIOS II TRAS IM
+             Real Constant Set For Above Contact Is 30 & 29
+ *********** Create Remote Point "Internal Remote Point 2" ***********
+ *********** Create Remote Point "Internal Remote Point 4" ***********
+ *********** Create Joint "Fixed - Ground To COPELA INFERIOR" ***********
+ *********** Create Joint "Translational - Ground To COPELA SUPERIOR" **********
+             Real Constant Set For Above Joint Is 31
+ *********** Construct Weak Springs, Prototype 1 ***********
+ *********** Construct Weak Springs, Prototype 2 ***********
+ *********** Construct Weak Springs, Prototype 3 ***********
+ *********** Create Joint Drivers **********
+
+
+ ***** ROUTINE COMPLETED *****  CP =         0.562
+
+
+ --- Number of total nodes = 24131
+ --- Number of contact elements = 9104
+ --- Number of spring elements = 72
+ --- Number of bearing elements = 0
+ --- Number of solid elements = 6400
+ --- Number of total elements = 14541
+
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  9.99027778    
+ ****************************************************************************
+ *************************    SOLUTION       ********************************
+ ****************************************************************************
+
+ *****  ANSYS SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ LARGE DEFORMATION ANALYSIS
+
+ USE SPARSE MATRIX DIRECT SOLVER
+
+ USE THE FULL NEWTON-RAPHSON OPTION FOR  ALL DEGREES OF FREEDOM
+   AND USE THE DEFAULT ADAPTIVE DESCENT OPTION
+
+ CONTACT INFORMATION PRINTOUT LEVEL       1
+
+ DO NOT COMBINE ELEMENT MATRIX FILES (.emat) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ DO NOT COMBINE ELEMENT SAVE DATA FILES (.esav) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ NLDIAG: Nonlinear diagnostics CONT option is set to ON. 
+         Writing frequency : each ITERATION.
+
+ DEFINE RESTART CONTROL FOR LOADSTEP LAST
+ AT FREQUENCY OF LAST AND NUMBER FOR OVERWRITE IS    0
+
+ DELETE RESTART FILES OF ENDSTEP
+ ****************************************************
+ ******************* SOLVE FOR LS 1 ****************
+
+ PRINTOUT RESUMED BY /GOP
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE        31 TO         31 STEP          1
+
+          1  ELEMENTS (OF      14541  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ APPLIED BOUNDARY CONDITIONS OR FORCES FOR JOINT ELEMENTS
+
+SPECIFIED VALUE FOR ALL SELECTED ELEMENTS
+FORCE, MOMENT, DISPLACEMENT OR ROTATION LABEL = UX  
+SET ACCORDING TO TABLE PARAMETER              = _LOADVARI95                     
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE         1 TO      15588 STEP          1
+
+      14541  ELEMENTS (OF      14541  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ USE INITIAL TIME STEP SIZE OF 0.1000000E-03 FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE 0.1000000E-05 AS THE MINIMUM TIME STEP SIZE
+   USE 0.1000000     AS THE MAXIMUM TIME STEP SIZE
+
+ TIME=  1.0000    
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NLOA ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE STRS ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPEL ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EPPL ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE MISC ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR THE ENTITIES DEFINED BY COMPONENT _ALLCONTACTS
+
+ WRITE MISC ITEMS TO THE DATABASE WITH A FREQUENCY OF    -50
+   FOR ALL APPLICABLE ENTITIES
+
+ NONLINEAR STABILIZATION CONTROL:
+ KEY=OFF 
+
+
+ CONVERGENCE ON F    BASED ON THE NORM OF THE N-R LOAD
+   WITH A TOLERANCE OF 0.5000E-02 AND A MINIMUM REFERENCE VALUE OF 0.1000E-01
+   USING THE L2 NORM (CHECK THE SRSS VALUE)
+
+ *** NOTE ***                            CP =       0.562   TIME= 09:59:25
+ Even though no prior convergence specification exists for removal.  The 
+ CNVTOL command is still executed for removal of label M.                
+
+ CONVERGENCE BASED ON M    IS REMOVED
+
+ *** NOTE ***                            CP =       0.562   TIME= 09:59:25
+ Even though no prior convergence specification exists for removal.  The 
+ CNVTOL command is still executed for removal of label U.                
+
+ CONVERGENCE BASED ON U    IS REMOVED
+
+ *** NOTE ***                            CP =       0.562   TIME= 09:59:25
+ Even though no prior convergence specification exists for removal.  The 
+ CNVTOL command is still executed for removal of label ROT.              
+
+ CONVERGENCE BASED ON ROT  IS REMOVED
+
+ NLDIAG: Nonlinear diagnostics NRRE option is set to ON. 
+ The number of files/iterations to be saved for NRRE nonlinear diagnostics has been set to   5
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_                         ( =   0.00000     )  NE  
+      0                                 ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *****  ANSYS SOLVE    COMMAND  *****
+
+ *** WARNING ***                         CP =       0.594   TIME= 09:59:25
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** NOTE ***                            CP =       0.609   TIME= 09:59:25
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018              
+ TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868\file0.err ) for these       
+ warning messages.                                                       
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+      --- GIVE SUGGESTIONS AND RESET THE KEY OPTIONS ---
+
+ ELEMENT TYPE    3 IS SOLID187. IT IS NOT ASSOCIATED WITH FULLY INCOMPRESSIBLE
+ HYPERELASTIC MATERIALS. NO SUGGESTION IS AVAILABLE AND NO RESETTING IS NEEDED.
+
+ ELEMENT TYPE    4 IS SOLID186. KEYOPT(2)=0 IS SUGGESTED AND HAS BEEN RESET.
+  KEYOPT(1-12)=    0    0    0    0    0    0    0    0    0    0    0    0
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 17.0     17.0     ***
+ DISTRIBUTED ANSYS Mechanical Premium                          
+
+ 00338920  VERSION=WINDOWS x64   09:59:25  NOV 18, 2024 CP=      0.609
+
+ DAIHATSU TERIOS 2006-2018 TRAS--Static Structural (C5)                        
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ   ROTX ROTY ROTZ
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+   NONLINEAR GEOMETRIC EFFECTS . . . . . . . . . .ON
+   EQUATION SOLVER OPTION. . . . . . . . . . . . .SPARSE             
+   NEWTON-RAPHSON OPTION . . . . . . . . . . . . .FULL             
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** WARNING ***                         CP =       0.625   TIME= 09:59:25
+ Material number 31 (used by element 6402 ) should normally have at      
+ least one MP or one TB type command associated with it.  Output of      
+ energy by material may not be available.                                
+
+ *** NOTE ***                            CP =       0.750   TIME= 09:59:25
+ The step data was checked and warning messages were found.              
+  Please review output or errors file (                                  
+ C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018              
+ TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868\file0.err ) for these       
+ warning messages.                                                       
+
+ *** NOTE ***                            CP =       0.766   TIME= 09:59:25
+ Internal nodes from 24132 to 24138 are created.                         
+ 4 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+ 3 internal nodes are used for non-contact elements with mixed           
+ formulation.                                                            
+
+ *** NOTE ***                            CP =       0.812   TIME= 09:59:25
+ Internal nodes from 24132 to 24138 are created.                         
+ 4 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+ 3 internal nodes are used for non-contact elements with mixed           
+ formulation.                                                            
+ *WARNING*: Node 1666 is applied on different contact pairs (real ID 5 & 
+ 6) as the pilot node.  These two pairs will be merged.                  
+ *WARNING*: Node 481 has been used on different contact pairs (real ID 5 
+ & 6).  These two pairs will be merged.  Please check the model          
+ carefully.                                                              
+ *WARNING*: Some contact elements on contact surface specified by real   
+ constant set 19 belong to symmetric contact (e.g.  23), some do not.    
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ It is highly recommended to use the auto contact setting option by      
+ issuing CNCHECK,AUTO command for this problem in order to achieve       
+ better convergence.                                                     
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Rigid target surface identified by real constant set 5.  The degrees    
+ of freedom of the rigid surface are driven by the pilot node 1666.      
+ Internal MPC will be built.                                             
+ Boundary conditions can be applied on any target node.
+ This pair will be merged with other pair defined by real constant set   
+ 6.                                                                      
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Rigid-deformable contact pair identified by real constant set 6 and     
+ contact element type 6 has been set up.  The degrees of freedom of the  
+ rigid surface are driven by the pilot node 1666.                        
+ Boundary conditions can be applied on any target node.
+ This pair will be merged with other pair defined by real constant set   
+ 5.                                                                      
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15642E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26850    
+ Max. initial friction coefficient MU         0.30000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.49462E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.9462    
+ Average contact pair depth                    2.6850    
+ Default pinball region factor PINB            3.0000    
+ The resulting pinball region                  8.0550    
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ One of the contact searching regions contains at least 103 target       
+ elements.  You may reduce the pinball radius.                           
+ Auto contact offset used to close gap        0.14964    
+ Initial penetration is excluded.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Min.  Initial gap 0.148154868 was detected between contact element 7014 
+ and target element 8237.                                                
+ The gap is closed due to initial settings.                              
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Rigid target surface identified by real constant set 8.  The degrees    
+ of freedom of the rigid surface are driven by the pilot node 3300.      
+ Internal MPC will be built.                                             
+ Boundary conditions can be applied on any target node.
+ This pair will be merged with other pair defined by real constant set   
+ 9.                                                                      
+ The used degrees of freedom set is  UX   UY   UZ   ROTX ROTY ROTZ
+ *WARNING*: Boundary conditions, coupling, and/or constraint equations   
+ have been applied on certain target nodes (for example 24057).          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Rigid-deformable contact pair identified by real constant set 9 and     
+ contact element type 9 has been set up.  The degrees of freedom of the  
+ rigid surface are driven by the pilot node 3300.                        
+ Boundary conditions can be applied on any target node.
+ This pair will be merged with other pair defined by real constant set   
+ 8.                                                                      
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15495E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.27105    
+ Max. initial friction coefficient MU         0.30000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.49123E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.9123    
+ Average contact pair depth                    2.7105    
+ Default pinball region factor PINB            3.0000    
+ The resulting pinball region                  8.1316    
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ One of the contact searching regions contains at least 118 target       
+ elements.  You may reduce the pinball radius.                           
+ Auto contact offset used to close gap        0.40930E-01
+ Initial penetration is excluded.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Min.  Initial gap 4.052521189E-02 was detected between contact element  
+ 9441 and target element 10506.                                          
+ The gap is closed due to initial settings.                              
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 11   
+ and contact element type 11 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.14655E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.28660    
+ Auto stabilization damping may be applied
+ Stabilization damping may be activated in the 1st load step
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.47788E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.7788    
+ Average contact pair depth                    2.8660    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  11.464    
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ One of the contact searching regions contains at least 107 target       
+ elements.  You may reduce the pinball radius.                           
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Min.  Initial gap 6.17253583 was detected between contact element 11064 
+ and target element 11169.                                               
+ You may move entire target surface by: x= 5.00000428, y= -0.170396776,  
+ z= 3.61540049, to bring it in contact.                                  
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 13   
+ and contact element type 13 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15981E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26280    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.50516E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                5.0516    
+ Average contact pair depth                    2.6280    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.512    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 15   
+ and contact element type 15 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15651E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26836    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.49766E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.9766    
+ Average contact pair depth                    2.6836    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.734    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 17   
+ and contact element type 17 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15662E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26817    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.48895E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.8895    
+ Average contact pair depth                    2.6817    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.727    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 19   
+ and contact element type 19 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15346E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.27369    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.48791E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.8791    
+ Average contact pair depth                    2.7369    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.948    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 21   
+ and contact element type 21 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.16086E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26110    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.50410E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                5.0410    
+ Average contact pair depth                    2.6110    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.444    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 23   
+ and contact element type 23 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15279E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.27488    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.49174E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.9174    
+ Average contact pair depth                    2.7488    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.995    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 25   
+ and contact element type 25 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15621E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26886    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.48819E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.8819    
+ Average contact pair depth                    2.6886    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.755    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 27   
+ and contact element type 27 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15526E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.27051    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.48835E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.8835    
+ Average contact pair depth                    2.7051    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.820    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 29   
+ and contact element type 29 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15950E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26333    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.49105E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.9105    
+ Average contact pair depth                    2.6333    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.533    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.328   TIME= 09:59:26
+ Min.  Initial gap 5.93146897 was detected between contact element 15307 
+ and target element 15499.                                               
+ You may move entire target surface by: x= 4.3208616, y= -0.784366299,   
+ z= 3.9871354, to bring it in contact.                                   
+ ****************************************
+  
+
+ *** WARNING ***                         CP =       1.328   TIME= 09:59:26
+ Maximum friction coefficient 0.3 is defined in the model.  Switch to    
+ the unsymmetric solver (NROP,UNSYM) instead if convergence difficulty   
+ is encountered.                                                         
+
+ *** WARNING ***                         CP =       1.328   TIME= 09:59:26
+ Overconstraint may occur for Lagrange multiplier or MPC based contact   
+ algorithm.                                                              
+ The reasons for possible overconstraint are:                            
+
+ *** WARNING ***                         CP =       1.328   TIME= 09:59:26
+ Boundary conditions, coupling, and/or constraint equations have been    
+ applied on certain contact nodes (for example 24057).                   
+ ****************************************
+  
+  
+
+ *** NOTE ***                            CP =       1.344   TIME= 09:59:26
+ Internal nodes from 24132 to 24138 are created.                         
+ 4 internal nodes are used for handling degrees of freedom on pilot      
+ nodes of rigid target surfaces.                                         
+ 3 internal nodes are used for non-contact elements with mixed           
+ formulation.                                                            
+
+  
+  
+     D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
+  
+  ...Number of elements: 14541
+  ...Number of nodes:    24138
+  ...Decompose to 4 CPU domains
+  ...Element load balance ratio =     1.007
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      STARTING TIME STEP SIZE. . . . . . . . . . . 0.10000E-03
+      MINIMUM TIME STEP SIZE . . . . . . . . . . . 0.10000E-05
+      MAXIMUM TIME STEP SIZE . . . . . . . . . . . 0.10000    
+   MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS. . . .    15
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   STRESS-STIFFENING . . . . . . . . . . . . . . .    ON
+   TERMINATE ANALYSIS IF NOT CONVERGED . . . . . .YES (EXIT)  
+   CONVERGENCE CONTROLS
+      LABEL   REFERENCE    TOLERANCE  NORM     MINREF
+       F       0.000       0.5000E-02   2     0.1000E-01
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        -50               
+      RSOL        -50               
+      NLOA        -50               
+      STRS        -50               
+      EPEL        -50               
+      EPPL        -50               
+      MISC        -50       _ALLCONTACTS
+      MISC        -50               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
+ *WARNING*: Some contact elements on contact surface specified by real   
+ constant set 21 belong to symmetric contact (e.g.  25), some do not.    
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 13   
+ and contact element type 13 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15981E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26280    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.50516E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                5.0516    
+ Average contact pair depth                    2.6280    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.512    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 17   
+ and contact element type 17 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15662E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26817    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.48895E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.8895    
+ Average contact pair depth                    2.6817    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.727    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 21   
+ and contact element type 21 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.16086E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26110    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.50410E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                5.0410    
+ Average contact pair depth                    2.6110    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.444    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 25   
+ and contact element type 25 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15621E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26886    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.48819E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.8819    
+ Average contact pair depth                    2.6886    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.755    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ No contact was detected for this contact pair.                          
+ ****************************************
+  
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ Deformable-deformable contact pair identified by real constant set 29   
+ and contact element type 29 has been set up.                            
+ Contact algorithm: Augmented Lagrange method
+ Contact detection at: Gauss integration point
+ Aggressive variation of contact stiffness is activated,                 
+ Contact stiffness factor FKN                  1.0000    
+ The resulting initial contact stiffness      0.15950E+07
+ Default penetration tolerance factor FTOLN   0.10000    
+ The resulting penetration tolerance          0.26333    
+ Max. initial friction coefficient MU         0.15000    
+ Default tangent stiffness factor FKT          1.0000    
+ Default elastic slip factor SLTOL            0.10000E-01
+ The resulting elastic slip                   0.49105E-01
+ Update contact stiffness at each iteration
+ Default Max. friction stress TAUMAX          0.10000E+21
+ Average contact surface length                4.9105    
+ Average contact pair depth                    2.6333    
+ Default pinball region factor PINB            4.0000    
+ The resulting pinball region                  10.533    
+ Initial penetration will be ramped during the first load step.
+
+ *** NOTE ***                            CP =       1.750   TIME= 09:59:26
+ Min.  Initial gap 5.93146897 was detected between contact element 15307 
+ and target element 15499.                                               
+ You may move entire target surface by: x= 4.3208616, y= -0.784366299,   
+ z= 3.9871354, to bring it in contact.                                   
+ ****************************************
+  
+ MAXIMUM NUMBER OF EQUILIBRIUM ITERATIONS HAS BEEN MODIFIED              
+  TO BE, NEQIT = 26, BY SOLUTION CONTROL LOGIC.                          
+
+  
+ The FEA model contains 0 external CE equations and 18 internal CE       
+ equations.                                                              
+  
+ *************************************************
+  SUMMARY FOR CONTACT PAIR IDENTIFIED BY REAL CONSTANT SET          13
+
+ *** NOTE ***                            CP =       2.297   TIME= 09:59:26
+ No contact was detected.                                                
+ Max.  Pinball distance 10.5121612.                                      
+ One of the contact searching regions contains at least 4 target         
+ elements.                                                               
+ *************************************************
+  
+ *************************************************
+  SUMMARY FOR CONTACT PAIR IDENTIFIED BY REAL CONSTANT SET          17
+
+ *** NOTE ***                            CP =       2.297   TIME= 09:59:26
+ No contact was detected.                                                
+ Max.  Pinball distance 10.7268292.                                      
+ *************************************************
+  
+ *************************************************
+  SUMMARY FOR CONTACT PAIR IDENTIFIED BY REAL CONSTANT SET          21
+
+ *** NOTE ***                            CP =       2.297   TIME= 09:59:26
+ No contact was detected.                                                
+ Max.  Pinball distance 10.443942.                                       
+ *************************************************
+  
+ *************************************************
+  SUMMARY FOR CONTACT PAIR IDENTIFIED BY REAL CONSTANT SET          25
+
+ *** NOTE ***                            CP =       2.297   TIME= 09:59:26
+ No contact was detected.                                                
+ Max.  Pinball distance 10.7545673.                                      
+ *************************************************
+  
+ *************************************************
+  SUMMARY FOR CONTACT PAIR IDENTIFIED BY REAL CONSTANT SET          29
+ Min.  Gap of 5.93146897 has been detected between contact element 15307 
+ and target element 15499.                                               
+ Max.  Pinball distance 10.5330109.                                      
+ One of the contact searching regions contains at least 39 target        
+ elements.                                                               
+ *************************************************
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.39567E-02   0.57343E-22   0.51835E-38 |   -0.18122E-19   0.63354      -0.29582E-02
+        0.16095E-21   0.39567E-02  -0.40783E-35 |   -0.63354       0.50864E-19   0.23224E-04
+        0.91296E-39   0.78279E-35   0.39567E-02 |    0.29582E-02  -0.23224E-04  -0.19109E-43
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |     179.97      -0.31782E-02   0.86134E-01
+                                                |   -0.31782E-02    179.99      -0.49913    
+                                                |    0.86134E-01  -0.49913        8.1165    
+
+   TOTAL MASS = 0.39567E-02
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.58696E-02   0.74766        160.12    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+         78.522      -0.31609E-02   0.89853E-01
+       -0.31609E-02    78.544      -0.25458E-01
+        0.89853E-01  -0.25458E-01    8.1143    
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.126674E-02
+     2  0.122786E-02
+     3  0.133737E-04
+     4  0.144870E-02
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 1.808400121E+09 at element 9441.                              
+ Minimum = 6.854466781E-04 at element 15580.                             
+
+ *** WARNING ***                         CP =       2.297   TIME= 09:59:26
+ Coefficient ratio exceeds 1.0e8 - Check results.                        
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1         1  MASS21        0.000   0.000000
+     2         1  MASS21        0.000   0.000000
+     3       678  SOLID187      0.031   0.000046
+     4      4678  SOLID186      0.344   0.000073
+     5       529  TARGE170      0.000   0.000000
+     6      1233  CONTA174      0.000   0.000000
+     7       528  TARGE170      0.000   0.000000
+     8       517  TARGE170      0.000   0.000000
+     9      1263  CONTA174      0.062   0.000049
+    10       516  TARGE170      0.000   0.000000
+    11        81  CONTA174      0.000   0.000000
+    12       217  TARGE170      0.000   0.000000
+    13       148  CONTA174      0.000   0.000000
+    14       263  TARGE170      0.000   0.000000
+    15       217  CONTA174      0.000   0.000000
+    16       268  TARGE170      0.000   0.000000
+    17       263  CONTA174      0.000   0.000000
+    18       256  TARGE170      0.000   0.000000
+    19       268  CONTA174      0.000   0.000000
+    20       264  TARGE170      0.000   0.000000
+    21       256  CONTA174      0.016   0.000061
+    22       269  TARGE170      0.000   0.000000
+    23       264  CONTA174      0.000   0.000000
+    24       267  TARGE170      0.016   0.000059
+    25       269  CONTA174      0.000   0.000000
+    26       224  TARGE170      0.000   0.000000
+    27       267  CONTA174      0.000   0.000000
+    28       154  TARGE170      0.000   0.000000
+    29       224  CONTA174      0.016   0.000070
+    30        85  TARGE170      0.000   0.000000
+    31         1  MPC184        0.000   0.000000
+    32        72  COMBIN14      0.000   0.000000
+ Time at end of element matrix formulation CP = 2.296875.                
+
+ ALL CURRENT ANSYS DATA WRITTEN TO FILE NAME= file.rdb
+  FOR POSSIBLE RESUME FROM THIS POINT
+     FORCE CONVERGENCE VALUE  = 0.1100E-07  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+
+ DISTRIBUTED SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =       62277,    Maximum wavefront =    594
+
+  Local memory allocated for solver              =    104.156 MB
+  Local memory required for in-core solution     =     75.536 MB
+  Local memory required for out-of-core solution =     56.454 MB
+
+  Total memory allocated for solver              =    415.330 MB
+  Total memory required for in-core solution     =    295.146 MB
+  Total memory required for out-of-core solution =    182.632 MB
+
+ *** NOTE ***                            CP =       2.500   TIME= 09:59:27
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+
+ *** WARNING ***                         CP =       2.500   TIME= 09:59:27
+ Pivoting has been activated for the Distributed Sparse Matrix Solver .  
+ The memory required may greatly exceed the predicted amount.  In that   
+ event, use the DSPOPTION command to change the memory mode and/or       
+ memory size used by the Distributed Sparse Matrix Solver.               
+ curEqn=  15015  totEqn=  15015 Job CP sec=      2.656
+      Factor Done= 100% Factor Wall sec=      0.073 rate=   15445.3 Mflops
+ Distributed sparse solver maximum pivot= 735682191 at node 1666 ROTZ.   
+ Distributed sparse solver minimum pivot= 7.72611198 at node 10006 UY.   
+ Distributed sparse solver minimum pivot in absolute value= 7.72611198   
+ at node 10006 UY.                                                       
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1425E-01
+     LINE SEARCH PARAMETER =  0.9945     SCALED MAX DOF INC = -0.1417E-01
+     FORCE CONVERGENCE VALUE  =  2.344      CRITERION= 0.2735E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1479E-01
+     LINE SEARCH PARAMETER =  0.5000E-01 SCALED MAX DOF INC =  0.7393E-03
+     FORCE CONVERGENCE VALUE  =  15.11      CRITERION= 0.2597E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1099E-02
+     LINE SEARCH PARAMETER =  0.9668     SCALED MAX DOF INC =  0.1063E-02
+     FORCE CONVERGENCE VALUE  = 0.8171      CRITERION= 0.2467E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4081E-01
+     LINE SEARCH PARAMETER =  0.8148     SCALED MAX DOF INC = -0.3325E-01
+     FORCE CONVERGENCE VALUE  =  7.448      CRITERION= 0.1138E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1204E-01
+     LINE SEARCH PARAMETER =  0.6537     SCALED MAX DOF INC =  0.7868E-02
+     FORCE CONVERGENCE VALUE  =  2.589      CRITERION= 0.3956E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2881E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2881E-01
+     FORCE CONVERGENCE VALUE  = 0.3341      CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9727E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.9727E-02
+     FORCE CONVERGENCE VALUE  = 0.4921E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1805E-01
+     LINE SEARCH PARAMETER =  0.9735     SCALED MAX DOF INC = -0.1757E-01
+     FORCE CONVERGENCE VALUE  = 0.5979      CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   9 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2228E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2228E-02
+     FORCE CONVERGENCE VALUE  = 0.1877E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER  10 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2011E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2011E-02
+     FORCE CONVERGENCE VALUE  = 0.9173E-02  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER  11 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3017E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3017E-03
+     FORCE CONVERGENCE VALUE  = 0.1560E-03  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER  12 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1887E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1887E-03
+     FORCE CONVERGENCE VALUE  = 0.7632E-05  CRITERION= 0.5000E-04 <<< CONVERGED
+     The calculated reference FORCE CONVERGENCE VALUE  =  0.1184E-02
+      is less than MINREF (which can be modified on the CNVTOL command).
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION  12
+
+   *** ELEMENT RESULT CALCULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1         1  MASS21        0.000   0.000000
+     2         1  MASS21        0.000   0.000000
+     3       678  SOLID187      0.000   0.000000
+     4      4678  SOLID186      0.109   0.000023
+     6       342  CONTA174      0.016   0.000046
+     9       383  CONTA174      0.000   0.000000
+    11        77  CONTA174      0.000   0.000000
+    13        13  CONTA174      0.000   0.000000
+    29       106  CONTA174      0.000   0.000000
+    31         1  MPC184        0.000   0.000000
+    32        72  COMBIN14      0.000   0.000000
+
+   *** NODAL LOAD CALCULATION TIMES
+  TYPE    NUMBER   ENAME      TOTAL CP  AVE CP
+
+     1         1  MASS21        0.000   0.000000
+     2         1  MASS21        0.000   0.000000
+     3       678  SOLID187      0.000   0.000000
+     4      4678  SOLID186      0.000   0.000000
+     6       342  CONTA174      0.000   0.000000
+     9       383  CONTA174      0.000   0.000000
+    11        77  CONTA174      0.000   0.000000
+    13        13  CONTA174      0.000   0.000000
+    29       106  CONTA174      0.000   0.000000
+    31         1  MPC184        0.000   0.000000
+    32        72  COMBIN14      0.000   0.000000
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =     12
+ *** TIME =  0.100000E-03     TIME INC =  0.100000E-03
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000E-03  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  4.033      CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1455E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1455E-02
+     FORCE CONVERGENCE VALUE  = 0.5632E-02  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1859E-02
+     LINE SEARCH PARAMETER =  0.9431     SCALED MAX DOF INC =  0.1753E-02
+     FORCE CONVERGENCE VALUE  = 0.1463E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1041E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1041E-03
+     FORCE CONVERGENCE VALUE  = 0.2604E-04  CRITERION= 0.5000E-04 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP     2  COMPLETED.    CUM ITER =     15
+ *** TIME =  0.200000E-03     TIME INC =  0.100000E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.15000E-03  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  5.773      CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3135E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3135E-02
+     FORCE CONVERGENCE VALUE  = 0.1239E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.8890E-02
+     LINE SEARCH PARAMETER =  0.5344     SCALED MAX DOF INC = -0.4751E-02
+     FORCE CONVERGENCE VALUE  = 0.4166      CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2754E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2754E-02
+     FORCE CONVERGENCE VALUE  = 0.1233E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3976E-02
+     LINE SEARCH PARAMETER =  0.3602     SCALED MAX DOF INC = -0.1432E-02
+     FORCE CONVERGENCE VALUE  = 0.7485E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1413E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1413E-02
+     FORCE CONVERGENCE VALUE  = 0.6389E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9277E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.9277E-03
+     FORCE CONVERGENCE VALUE  = 0.2802E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7487E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.7487E-03
+     FORCE CONVERGENCE VALUE  = 0.1868E-01  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3124E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3124E-03
+     FORCE CONVERGENCE VALUE  = 0.3274E-02  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   9 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1171E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1171E-03
+     FORCE CONVERGENCE VALUE  = 0.4609E-03  CRITERION= 0.5000E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER  10 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1163E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1163E-04
+     FORCE CONVERGENCE VALUE  = 0.4496E-05  CRITERION= 0.5000E-04 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION  10
+ *** LOAD STEP     1   SUBSTEP     3  COMPLETED.    CUM ITER =     25
+ *** TIME =  0.350000E-03     TIME INC =  0.150000E-03
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.15000E-03  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  10.39      CRITERION= 0.8326E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5515E-02
+     LINE SEARCH PARAMETER =  0.9910     SCALED MAX DOF INC =  0.5465E-02
+     FORCE CONVERGENCE VALUE  = 0.1033      CRITERION= 0.8965E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5933E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5933E-02
+     FORCE CONVERGENCE VALUE  = 0.1343      CRITERION= 0.6714E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5804E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5804E-03
+     FORCE CONVERGENCE VALUE  = 0.1230E-02  CRITERION= 0.6757E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1058E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1058E-03
+     FORCE CONVERGENCE VALUE  = 0.1042E-03  CRITERION= 0.6761E-04
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9106E-05
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.9106E-05
+     FORCE CONVERGENCE VALUE  = 0.2284E-06  CRITERION= 0.6762E-04 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   5
+ *** LOAD STEP     1   SUBSTEP     4  COMPLETED.    CUM ITER =     30
+ *** TIME =  0.500000E-03     TIME INC =  0.150000E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.22500E-03  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  14.37      CRITERION= 0.2309E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4176E-02
+     LINE SEARCH PARAMETER =  0.9069     SCALED MAX DOF INC =  0.3788E-02
+     FORCE CONVERGENCE VALUE  =  1.342      CRITERION= 0.2313E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7659E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.7659E-02
+     FORCE CONVERGENCE VALUE  = 0.2400      CRITERION= 0.1332E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1295E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1295E-02
+     FORCE CONVERGENCE VALUE  = 0.8258E-02  CRITERION= 0.1323E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.6017E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.6017E-03
+     FORCE CONVERGENCE VALUE  = 0.1234E-01  CRITERION= 0.1324E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5815E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5815E-04
+     FORCE CONVERGENCE VALUE  = 0.1121E-03  CRITERION= 0.1324E-03 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   5
+ *** LOAD STEP     1   SUBSTEP     5  COMPLETED.    CUM ITER =     35
+ *** TIME =  0.725000E-03     TIME INC =  0.225000E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.33750E-03  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  29.46      CRITERION= 0.1036E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4438E-02
+     LINE SEARCH PARAMETER =  0.7720     SCALED MAX DOF INC =  0.3426E-02
+     FORCE CONVERGENCE VALUE  =  6.747      CRITERION= 0.9064E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1867E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1867E-02
+     FORCE CONVERGENCE VALUE  = 0.1110      CRITERION= 0.5743E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1037E-01
+     LINE SEARCH PARAMETER =  0.9942     SCALED MAX DOF INC = -0.1031E-01
+     FORCE CONVERGENCE VALUE  =  2.386      CRITERION= 0.3311E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1517E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1517E-02
+     FORCE CONVERGENCE VALUE  = 0.1915E-01  CRITERION= 0.2940E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.6589E-02
+     LINE SEARCH PARAMETER =  0.7725     SCALED MAX DOF INC = -0.5090E-02
+     FORCE CONVERGENCE VALUE  = 0.7132      CRITERION= 0.2757E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9571E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.9571E-03
+     FORCE CONVERGENCE VALUE  = 0.6102E-02  CRITERION= 0.2706E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1210E-02
+     LINE SEARCH PARAMETER =  0.8885     SCALED MAX DOF INC =  0.1075E-02
+     FORCE CONVERGENCE VALUE  = 0.3735E-01  CRITERION= 0.2705E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1571E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1571E-03
+     FORCE CONVERGENCE VALUE  = 0.7857E-03  CRITERION= 0.2704E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   9 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3270E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3270E-04
+     FORCE CONVERGENCE VALUE  = 0.3416E-04  CRITERION= 0.2704E-03 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   9
+ *** LOAD STEP     1   SUBSTEP     6  COMPLETED.    CUM ITER =     44
+ *** TIME =  0.106250E-02     TIME INC =  0.337500E-03
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.33750E-03  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  7.112      CRITERION= 0.8337E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6604E-02
+     LINE SEARCH PARAMETER =  0.7526     SCALED MAX DOF INC =  0.4970E-02
+     FORCE CONVERGENCE VALUE  =  1.905      CRITERION= 0.8205E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2143E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2143E-02
+     FORCE CONVERGENCE VALUE  = 0.6972E-01  CRITERION= 0.6423E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4158E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.4158E-02
+     FORCE CONVERGENCE VALUE  = 0.1926      CRITERION= 0.5320E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3784E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3784E-02
+     FORCE CONVERGENCE VALUE  = 0.2204      CRITERION= 0.4854E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1939E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1939E-02
+     FORCE CONVERGENCE VALUE  = 0.8988E-01  CRITERION= 0.4721E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1016E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1016E-02
+     FORCE CONVERGENCE VALUE  = 0.3045E-01  CRITERION= 0.4686E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3025E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3025E-03
+     FORCE CONVERGENCE VALUE  = 0.2804E-02  CRITERION= 0.4678E-03
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5489E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5489E-04
+     FORCE CONVERGENCE VALUE  = 0.7226E-04  CRITERION= 0.4677E-03 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   8
+ *** LOAD STEP     1   SUBSTEP     7  COMPLETED.    CUM ITER =     52
+ *** TIME =  0.140000E-02     TIME INC =  0.337500E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.50625E-03  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  5.823      CRITERION= 0.1318E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.7391E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.7391E-02
+     FORCE CONVERGENCE VALUE  =  1.106      CRITERION= 0.1932E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1368E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1368E-01
+     FORCE CONVERGENCE VALUE  =  5.805      CRITERION= 0.2432E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4019E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4019E-02
+     FORCE CONVERGENCE VALUE  = 0.3801      CRITERION= 0.2896E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7383E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.7383E-02
+     FORCE CONVERGENCE VALUE  =  1.663      CRITERION= 0.3268E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2137E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2137E-02
+     FORCE CONVERGENCE VALUE  = 0.1765      CRITERION= 0.3614E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   6 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1457E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1457E-02
+     FORCE CONVERGENCE VALUE  = 0.1230      CRITERION= 0.3963E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   7 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9994E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.9994E-03
+     FORCE CONVERGENCE VALUE  = 0.1071      CRITERION= 0.4289E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   8 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.8141E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.8141E-03
+     FORCE CONVERGENCE VALUE  = 0.1008      CRITERION= 0.4592E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   9 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6598E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6598E-03
+     FORCE CONVERGENCE VALUE  = 0.8991E-01  CRITERION= 0.4876E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER  10 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6301E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6301E-03
+     FORCE CONVERGENCE VALUE  = 0.8145E-01  CRITERION= 0.5133E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER  11 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5641E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5641E-03
+     FORCE CONVERGENCE VALUE  = 0.7274E-01  CRITERION= 0.5363E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER  12 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5003E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5003E-03
+     FORCE CONVERGENCE VALUE  = 0.6415E-01  CRITERION= 0.5565E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER  13 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4398E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4398E-03
+     FORCE CONVERGENCE VALUE  = 0.5613E-01  CRITERION= 0.5741E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER  14 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3639E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3639E-03
+     FORCE CONVERGENCE VALUE  = 0.4868E-01  CRITERION= 0.5895E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER  15 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3168E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3168E-03
+     FORCE CONVERGENCE VALUE  = 0.4181E-01  CRITERION= 0.6027E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER  16 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2724E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2724E-03
+     FORCE CONVERGENCE VALUE  = 0.3568E-01  CRITERION= 0.6140E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER  17 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2390E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2390E-03
+     FORCE CONVERGENCE VALUE  = 0.3040E-01  CRITERION= 0.6236E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER  18 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2009E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2009E-03
+     FORCE CONVERGENCE VALUE  = 0.2573E-01  CRITERION= 0.6318E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER  19 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1698E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1698E-03
+     FORCE CONVERGENCE VALUE  = 0.2169E-01  CRITERION= 0.6386E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER  20 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1427E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1427E-03
+     FORCE CONVERGENCE VALUE  = 0.1821E-01  CRITERION= 0.6444E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER  21 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1196E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1196E-03
+     FORCE CONVERGENCE VALUE  = 0.1524E-01  CRITERION= 0.6492E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER  22 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.9989E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.9989E-04
+     FORCE CONVERGENCE VALUE  = 0.1271E-01  CRITERION= 0.6532E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER  23 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.8325E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.8325E-04
+     FORCE CONVERGENCE VALUE  = 0.1058E-01  CRITERION= 0.6566E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER  24 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6924E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6924E-04
+     FORCE CONVERGENCE VALUE  = 0.8794E-02  CRITERION= 0.6594E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER  25 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5748E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5748E-04
+     FORCE CONVERGENCE VALUE  = 0.7296E-02  CRITERION= 0.6617E-02
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER  26 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4765E-04
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4765E-04
+     FORCE CONVERGENCE VALUE  = 0.6045E-02  CRITERION= 0.6636E-02 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION  26
+ *** LOAD STEP     1   SUBSTEP     8  COMPLETED.    CUM ITER =     78
+ *** TIME =  0.190625E-02     TIME INC =  0.506250E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.37969E-03  DECREASED (FACTOR = 0.7500)
+
+     FORCE CONVERGENCE VALUE  =  74.33      CRITERION= 0.1986E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1760E-01
+     LINE SEARCH PARAMETER =  0.9695     SCALED MAX DOF INC =  0.1706E-01
+     FORCE CONVERGENCE VALUE  =  2.710      CRITERION= 0.1895E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5742E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5742E-02
+     FORCE CONVERGENCE VALUE  = 0.1886      CRITERION= 0.1883E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4835E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.4835E-03
+     FORCE CONVERGENCE VALUE  = 0.4207E-01  CRITERION= 0.1875E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2165E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2165E-03
+     FORCE CONVERGENCE VALUE  = 0.2602E-01  CRITERION= 0.1869E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1277E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1277E-03
+     FORCE CONVERGENCE VALUE  = 0.1604E-01  CRITERION= 0.1865E-01 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   5
+ *** LOAD STEP     1   SUBSTEP     9  COMPLETED.    CUM ITER =     83
+ *** TIME =  0.228594E-02     TIME INC =  0.379687E-03
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.37969E-03  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  68.60      CRITERION= 0.3281E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1021E-01
+     LINE SEARCH PARAMETER =  0.8611     SCALED MAX DOF INC = -0.8794E-02
+     FORCE CONVERGENCE VALUE  =  10.02      CRITERION= 0.3136E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6259E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.6259E-02
+     FORCE CONVERGENCE VALUE  =  1.135      CRITERION= 0.3128E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2081E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2081E-02
+     FORCE CONVERGENCE VALUE  = 0.1395      CRITERION= 0.3117E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4165E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4165E-03
+     FORCE CONVERGENCE VALUE  = 0.3780E-01  CRITERION= 0.3112E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1473E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1473E-03
+     FORCE CONVERGENCE VALUE  = 0.1867E-01  CRITERION= 0.3108E-01 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   5
+ *** LOAD STEP     1   SUBSTEP    10  COMPLETED.    CUM ITER =     88
+ *** TIME =  0.266563E-02     TIME INC =  0.379687E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.56953E-03  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  54.43      CRITERION= 0.5110E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1052E-01
+     LINE SEARCH PARAMETER =  0.9467     SCALED MAX DOF INC = -0.9957E-02
+     FORCE CONVERGENCE VALUE  =  3.796      CRITERION= 0.5002E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4950E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4950E-02
+     FORCE CONVERGENCE VALUE  = 0.7094      CRITERION= 0.5024E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5172E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.5172E-03
+     FORCE CONVERGENCE VALUE  = 0.1833E-01  CRITERION= 0.5025E-01 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    11  COMPLETED.    CUM ITER =     91
+ *** TIME =  0.323516E-02     TIME INC =  0.569531E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.85430E-03  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  61.63      CRITERION= 0.8057E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1021E-01
+     LINE SEARCH PARAMETER =  0.9598     SCALED MAX DOF INC = -0.9803E-02
+     FORCE CONVERGENCE VALUE  =  3.422      CRITERION= 0.7910E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3730E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3730E-02
+     FORCE CONVERGENCE VALUE  = 0.3917      CRITERION= 0.7948E-01
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3964E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3964E-03
+     FORCE CONVERGENCE VALUE  = 0.1369E-01  CRITERION= 0.7952E-01 <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    12  COMPLETED.    CUM ITER =     94
+ *** TIME =  0.408945E-02     TIME INC =  0.854297E-03
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.12814E-02  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  84.31      CRITERION= 0.1258    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9161E-02
+     LINE SEARCH PARAMETER =  0.9395     SCALED MAX DOF INC = -0.8607E-02
+     FORCE CONVERGENCE VALUE  =  5.649      CRITERION= 0.1231    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2659E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.2659E-02
+     FORCE CONVERGENCE VALUE  = 0.1934      CRITERION= 0.1238    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3988E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3988E-03
+     FORCE CONVERGENCE VALUE  = 0.1422E-01  CRITERION= 0.1239     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    13  COMPLETED.    CUM ITER =     97
+ *** TIME =  0.537090E-02     TIME INC =  0.128145E-02
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.19222E-02  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  144.6      CRITERION= 0.1950    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.7893E-02
+     LINE SEARCH PARAMETER =  0.9172     SCALED MAX DOF INC = -0.7240E-02
+     FORCE CONVERGENCE VALUE  =  12.17      CRITERION= 0.1887    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1872E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1872E-02
+     FORCE CONVERGENCE VALUE  = 0.1112      CRITERION= 0.1906     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   2
+ *** LOAD STEP     1   SUBSTEP    14  COMPLETED.    CUM ITER =     99
+ *** TIME =  0.729307E-02     TIME INC =  0.192217E-02
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.28833E-02  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  289.3      CRITERION= 0.3010    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9295E-02
+     LINE SEARCH PARAMETER =  0.9068     SCALED MAX DOF INC = -0.8429E-02
+     FORCE CONVERGENCE VALUE  =  27.32      CRITERION= 0.2857    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5709E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5709E-02
+     FORCE CONVERGENCE VALUE  =  1.049      CRITERION= 0.2911    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1143E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1143E-02
+     FORCE CONVERGENCE VALUE  = 0.5849E-01  CRITERION= 0.2916     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    15  COMPLETED.    CUM ITER =    102
+ *** TIME =  0.101763E-01     TIME INC =  0.288325E-02
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.43249E-02  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  556.5      CRITERION= 0.5733    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3381E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3381E-01
+     FORCE CONVERGENCE VALUE  =  28.63      CRITERION= 0.4376    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1236E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1236E-01
+     FORCE CONVERGENCE VALUE  =  3.325      CRITERION= 0.4411    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3092E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3092E-02
+     FORCE CONVERGENCE VALUE  = 0.1877      CRITERION= 0.4438     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    16  COMPLETED.    CUM ITER =    105
+ *** TIME =  0.145012E-01     TIME INC =  0.432488E-02
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.64873E-02  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  1055.      CRITERION=  1.226    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4567E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.4567E-01
+     FORCE CONVERGENCE VALUE  =  62.36      CRITERION= 0.6833    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2206E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2206E-01
+     FORCE CONVERGENCE VALUE  =  12.67      CRITERION= 0.6804    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3047E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3047E-02
+     FORCE CONVERGENCE VALUE  = 0.2407      CRITERION= 0.6809     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    17  COMPLETED.    CUM ITER =    108
+ *** TIME =  0.209885E-01     TIME INC =  0.648732E-02
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.97310E-02  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  2130.      CRITERION=  1.936    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3738E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.3738E-01
+     FORCE CONVERGENCE VALUE  =  37.90      CRITERION=  1.066    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5580E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.5580E-01
+     FORCE CONVERGENCE VALUE  =  78.61      CRITERION=  1.050    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4733E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.4733E-02
+     FORCE CONVERGENCE VALUE  = 0.6765      CRITERION=  1.051     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    18  COMPLETED.    CUM ITER =    111
+ *** TIME =  0.307195E-01     TIME INC =  0.973098E-02
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.14596E-01  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  3810.      CRITERION=  3.643    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.9168E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.9168E-01
+     FORCE CONVERGENCE VALUE  =  160.7      CRITERION=  1.522    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.6204E-01
+     LINE SEARCH PARAMETER =  0.9719     SCALED MAX DOF INC = -0.6030E-01
+     FORCE CONVERGENCE VALUE  =  119.1      CRITERION=  1.701    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.6743E-02
+     LINE SEARCH PARAMETER =  0.8371     SCALED MAX DOF INC = -0.5645E-02
+     FORCE CONVERGENCE VALUE  =  20.51      CRITERION=  1.631    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1268E-02
+     LINE SEARCH PARAMETER =  0.7604     SCALED MAX DOF INC = -0.9642E-03
+     FORCE CONVERGENCE VALUE  =  4.928      CRITERION=  1.643    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   5 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2549E-03
+     LINE SEARCH PARAMETER =  0.8037     SCALED MAX DOF INC = -0.2049E-03
+     FORCE CONVERGENCE VALUE  = 0.9716      CRITERION=  1.640     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   5
+ *** LOAD STEP     1   SUBSTEP    19  COMPLETED.    CUM ITER =    116
+ *** TIME =  0.453160E-01     TIME INC =  0.145965E-01
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.14596E-01  UNCHANGED
+
+     FORCE CONVERGENCE VALUE  =  1880.      CRITERION=  3.381    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.8344E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.8344E-01
+     FORCE CONVERGENCE VALUE  =  136.7      CRITERION=  2.174    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1312E-01
+     LINE SEARCH PARAMETER =  0.7948     SCALED MAX DOF INC = -0.1043E-01
+     FORCE CONVERGENCE VALUE  =  30.47      CRITERION=  2.271    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3646E-02
+     LINE SEARCH PARAMETER =  0.8522     SCALED MAX DOF INC =  0.3107E-02
+     FORCE CONVERGENCE VALUE  =  4.609      CRITERION=  2.242    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4405E-03
+     LINE SEARCH PARAMETER =  0.7376     SCALED MAX DOF INC = -0.3249E-03
+     FORCE CONVERGENCE VALUE  =  1.240      CRITERION=  2.246     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   4
+ *** LOAD STEP     1   SUBSTEP    20  COMPLETED.    CUM ITER =    120
+ *** TIME =  0.599124E-01     TIME INC =  0.145965E-01
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.21895E-01  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  2163.      CRITERION=  3.408    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3322E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3322E-01
+     FORCE CONVERGENCE VALUE  =  31.74      CRITERION=  3.146    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.5226E-02
+     LINE SEARCH PARAMETER =  0.9267     SCALED MAX DOF INC =  0.4843E-02
+     FORCE CONVERGENCE VALUE  =  3.062      CRITERION=  3.170     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   2
+ *** LOAD STEP     1   SUBSTEP    21  COMPLETED.    CUM ITER =    122
+ *** TIME =  0.818071E-01     TIME INC =  0.218947E-01
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.32842E-01  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  4403.      CRITERION=  4.851    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4048E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.4048E-01
+     FORCE CONVERGENCE VALUE  =  42.43      CRITERION=  4.492    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1296E-01
+     LINE SEARCH PARAMETER =  0.8831     SCALED MAX DOF INC =  0.1144E-01
+     FORCE CONVERGENCE VALUE  =  6.625      CRITERION=  4.548    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1938E-02
+     LINE SEARCH PARAMETER =  0.6864     SCALED MAX DOF INC =  0.1331E-02
+     FORCE CONVERGENCE VALUE  =  2.073      CRITERION=  4.531     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    22  COMPLETED.    CUM ITER =    125
+ *** TIME =  0.114649         TIME INC =  0.328420E-01
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.49263E-01  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  =  9241.      CRITERION=  7.003    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.4574E-01
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.4574E-01
+     FORCE CONVERGENCE VALUE  =  61.42      CRITERION=  6.576    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2661E-01
+     LINE SEARCH PARAMETER =  0.9866     SCALED MAX DOF INC =  0.2625E-01
+     FORCE CONVERGENCE VALUE  =  12.05      CRITERION=  6.585    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.3975E-03
+     LINE SEARCH PARAMETER =  0.7718     SCALED MAX DOF INC = -0.3068E-03
+     FORCE CONVERGENCE VALUE  =  2.760      CRITERION=  6.599     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    23  COMPLETED.    CUM ITER =    128
+ *** TIME =  0.163912         TIME INC =  0.492631E-01
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.73895E-01  INCREASED (FACTOR = 1.5000)
+
+     FORCE CONVERGENCE VALUE  = 0.1985E+05  CRITERION=  10.32    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3980E-01
+     LINE SEARCH PARAMETER =  0.9989     SCALED MAX DOF INC =  0.3975E-01
+     FORCE CONVERGENCE VALUE  =  82.87      CRITERION=  9.363    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.4428E-01
+     LINE SEARCH PARAMETER =  0.6835     SCALED MAX DOF INC =  0.3027E-01
+     FORCE CONVERGENCE VALUE  =  37.41      CRITERION=  9.693    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.7641E-02
+     LINE SEARCH PARAMETER =  0.9913     SCALED MAX DOF INC =  0.7575E-02
+     FORCE CONVERGENCE VALUE  =  2.182      CRITERION=  9.693     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3676E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.3676E-03
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   4
+ *** LOAD STEP     1   SUBSTEP    24  COMPLETED.    CUM ITER =    132
+ *** TIME =  0.237807         TIME INC =  0.738946E-01
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.10000      INCREASED (FACTOR = 1.3533)
+
+     FORCE CONVERGENCE VALUE  = 0.3720E+05  CRITERION=  15.08    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.3141E-01
+     LINE SEARCH PARAMETER =  0.9981     SCALED MAX DOF INC =  0.3135E-01
+     FORCE CONVERGENCE VALUE  =  170.2      CRITERION=  13.33    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2358E-01
+     LINE SEARCH PARAMETER =  0.9467     SCALED MAX DOF INC =  0.2232E-01
+     FORCE CONVERGENCE VALUE  =  33.70      CRITERION=  13.80    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1693E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.1693E-02
+     FORCE CONVERGENCE VALUE  =  1.918      CRITERION=  13.83     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    25  COMPLETED.    CUM ITER =    135
+ *** TIME =  0.337807         TIME INC =  0.100000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  = 0.4267E+05  CRITERION=  19.19    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2623E-01
+     LINE SEARCH PARAMETER =  0.9988     SCALED MAX DOF INC =  0.2620E-01
+     FORCE CONVERGENCE VALUE  =  176.4      CRITERION=  17.38    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2058E-01
+     LINE SEARCH PARAMETER =  0.9436     SCALED MAX DOF INC =  0.1942E-01
+     FORCE CONVERGENCE VALUE  =  21.23      CRITERION=  17.95    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1422E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1422E-02
+     FORCE CONVERGENCE VALUE  =  2.418      CRITERION=  17.95     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    26  COMPLETED.    CUM ITER =    138
+ *** TIME =  0.437807         TIME INC =  0.100000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  = 0.4264E+05  CRITERION=  23.28    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2671E-01
+     LINE SEARCH PARAMETER =  0.9991     SCALED MAX DOF INC =  0.2669E-01
+     FORCE CONVERGENCE VALUE  =  162.3      CRITERION=  21.54    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1875E-01
+     LINE SEARCH PARAMETER =  0.9595     SCALED MAX DOF INC =  0.1799E-01
+     FORCE CONVERGENCE VALUE  =  20.21      CRITERION=  22.02     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1366E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1366E-02
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    27  COMPLETED.    CUM ITER =    141
+ *** TIME =  0.537807         TIME INC =  0.100000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  = 0.4271E+05  CRITERION=  27.03    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1290E-01
+     LINE SEARCH PARAMETER =  0.9994     SCALED MAX DOF INC = -0.1289E-01
+     FORCE CONVERGENCE VALUE  =  149.9      CRITERION=  25.67    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1138E-01
+     LINE SEARCH PARAMETER =  0.9741     SCALED MAX DOF INC =  0.1109E-01
+     FORCE CONVERGENCE VALUE  =  12.77      CRITERION=  26.10     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.9297E-03
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.9297E-03
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    28  COMPLETED.    CUM ITER =    144
+ *** TIME =  0.637807         TIME INC =  0.100000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  = 0.4277E+05  CRITERION=  31.28    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2141E-01
+     LINE SEARCH PARAMETER =  0.9988     SCALED MAX DOF INC =  0.2138E-01
+     FORCE CONVERGENCE VALUE  =  319.7      CRITERION=  29.79    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2069E-01
+     LINE SEARCH PARAMETER =  0.6799     SCALED MAX DOF INC =  0.1407E-01
+     FORCE CONVERGENCE VALUE  =  31.92      CRITERION=  30.04    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6809E-02
+     LINE SEARCH PARAMETER =  0.8416     SCALED MAX DOF INC =  0.5731E-02
+     FORCE CONVERGENCE VALUE  =  12.64      CRITERION=  30.14     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1333E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1333E-02
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   4
+ *** LOAD STEP     1   SUBSTEP    29  COMPLETED.    CUM ITER =    148
+ *** TIME =  0.737807         TIME INC =  0.100000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  = 0.4297E+05  CRITERION=  37.22    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1947E-01
+     LINE SEARCH PARAMETER =  0.9998     SCALED MAX DOF INC = -0.1947E-01
+     FORCE CONVERGENCE VALUE  =  303.2      CRITERION=  34.35    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1513E-01
+     LINE SEARCH PARAMETER =  0.8059     SCALED MAX DOF INC =  0.1219E-01
+     FORCE CONVERGENCE VALUE  =  64.92      CRITERION=  34.33    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.6357E-02
+     LINE SEARCH PARAMETER =  0.8262     SCALED MAX DOF INC =  0.5252E-02
+     FORCE CONVERGENCE VALUE  =  27.74      CRITERION=  34.21     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2381E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2381E-02
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   4
+ *** LOAD STEP     1   SUBSTEP    30  COMPLETED.    CUM ITER =    152
+ *** TIME =  0.837807         TIME INC =  0.100000    
+ *** AUTO STEP TIME:  NEXT TIME INC = 0.10000      UNCHANGED
+
+     FORCE CONVERGENCE VALUE  = 0.4314E+05  CRITERION=  41.81    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2287E-01
+     LINE SEARCH PARAMETER =  0.9993     SCALED MAX DOF INC =  0.2285E-01
+     FORCE CONVERGENCE VALUE  =  372.3      CRITERION=  38.25    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.2322E-01
+     LINE SEARCH PARAMETER =  0.6420     SCALED MAX DOF INC =  0.1491E-01
+     FORCE CONVERGENCE VALUE  =  43.07      CRITERION=  38.22    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr005
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.5298E-02
+     LINE SEARCH PARAMETER =  0.8441     SCALED MAX DOF INC = -0.4472E-02
+     FORCE CONVERGENCE VALUE  =  14.56      CRITERION=  38.19     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr001
+    EQUIL ITER   4 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1291E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC =  0.1291E-02
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   4
+ *** LOAD STEP     1   SUBSTEP    31  COMPLETED.    CUM ITER =    156
+ *** TIME =  0.937807         TIME INC =  0.100000    
+ *** AUTO TIME STEP:  NEXT TIME INC = 0.62193E-01  DECREASED (FACTOR = 0.6219)
+
+     FORCE CONVERGENCE VALUE  = 0.2194E+05  CRITERION=  41.53    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr002
+    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.9365E-02
+     LINE SEARCH PARAMETER =  0.9997     SCALED MAX DOF INC =  0.9363E-02
+     FORCE CONVERGENCE VALUE  =  92.35      CRITERION=  40.59    
+    Writing NEWTON-RAPHSON residual forces to file: file.nr003
+    EQUIL ITER   2 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC=  0.1239E-01
+     LINE SEARCH PARAMETER =  0.7411     SCALED MAX DOF INC =  0.9179E-02
+     FORCE CONVERGENCE VALUE  =  18.22      CRITERION=  40.65     <<< CONVERGED
+    Writing NEWTON-RAPHSON residual forces to file: file.nr004
+    EQUIL ITER   3 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.2456E-02
+     LINE SEARCH PARAMETER =   1.000     SCALED MAX DOF INC = -0.2456E-02
+    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   3
+ *** LOAD STEP     1   SUBSTEP    32  COMPLETED.    CUM ITER =    159
+ *** TIME =   1.00000         TIME INC =  0.621932E-01
+
+
+ *** ANSYS BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.375 MB WRITTEN ON ELEMENT MATRIX FILE: file0.emat
+       16.438 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+       17.000 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
+       31.562 MB WRITTEN ON RESULTS FILE: file0.rst
+ *************** Write FE CONNECTORS *********
+
+ WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 1 *************
+
+ PARAMETER _DS_PROGRESS  DELETED.
+
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE=  10.0341667    
+
+ PRINTOUT RESUMED BY /GOP
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  CP =        88.938
+
+
+
+ *** ANSYS - ENGINEERING ANALYSIS SYSTEM  RELEASE Release 17.0     17.0     ***
+ DISTRIBUTED ANSYS Mechanical Premium                          
+
+ 00338920  VERSION=WINDOWS x64   10:02:03  NOV 18, 2024 CP=     88.938
+
+ DAIHATSU TERIOS 2006-2018 TRAS--Static Structural (C5)                        
+
+
+
+          ***** ANSYS RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            CP =      88.938   TIME= 10:02:03
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml                                                                                                                                                                                                                                                            
+
+ EXIT THE ANSYS POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  CP =        88.938
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE=  10.0341667    
+
+ PARAMETER _PREPTIME =     0.000000000    
+
+ PARAMETER _SOLVTIME =     158.0000000    
+
+ PARAMETER _POSTTIME =     0.000000000    
+
+ PARAMETER _TOTALTIM =     158.0000000    
+
+ EXIT ANSYS WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          7
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+ *** WARNING ***                         CP =      88.938   TIME= 10:02:03
+ During this session the elapsed time exceeds the CPU time by 81%.       
+ Often this indicates either a lack of physical memory (RAM) required    
+ to efficiently handle this simulation or it indicates a particularly    
+ slow hard drive configuration.  This simulation can be expected to run  
+ faster on identical hardware if additional RAM or a faster hard drive   
+ configuration is made available.  For more details, please see the      
+ ANSYS Performance Guide which is part of the ANSYS Help system.         
+
++--------- D I S T R I B U T E D   A N S Y S   S T A T I S T I C S ------------+
+
+Release: Release 17.0       Build: 17.0       Update: UP20151214   Platform: WINDOWS x64 
+Date Run: 11/18/2024   Time: 10:02
+Operating System: Windows 10  (Build: 22631)
+Windows Process ID: 41340       
+
+Processor Model: 12th Gen Intel(R) Core(TM) i7-12700
+
+Compiler: Intel(R) FORTRAN Compiler Version 15.0.2  (Build: 20150121)
+          Intel(R) C/C++ Compiler Version 15.0.2  (Build: 20150121)
+          Intel(R) Math Kernel Library Version 11.2.3 Product Build 20150413
+
+Number of machines requested            :    1
+Total number of cores available         :   20
+Number of physical cores available      :   12
+Number of processes requested           :    4
+Number of threads per process requested :    1
+Total number of cores requested         :    4 (Distributed Memory Parallel)               
+MPI Type: INTELMPI
+MPI Version: Intel(R) MPI Library 5.0 Update 3 for Windows* OS
+
+
+GPU Acceleration: Not Requested
+
+Job Name: file0
+Input File: dummy.dat
+
+  Core                Machine Name   Working Directory
+  ----------------------------------------------------
+     0     IMFTTNAPP.Grupo_A.local   C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868
+     1     IMFTTNAPP.Grupo_A.local   C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868
+     2     IMFTTNAPP.Grupo_A.local   C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868
+     3     IMFTTNAPP.Grupo_A.local   C:\Users\aprietop\Documents\2024\DAIHATSU TERIOS 2006-2018 TRAS\ANALISIS ANSYS\_ProjectScratch\ScrC868
+ 
+Latency time from master to core    1 =    0.616 microseconds
+Latency time from master to core    2 =    0.592 microseconds
+Latency time from master to core    3 =    0.496 microseconds
+ 
+Communication speed from master to core    1 = 11373.46 MB/sec
+Communication speed from master to core    2 = 13123.96 MB/sec
+Communication speed from master to core    3 =  9965.17 MB/sec
+
+Total CPU time for main thread                    :       87.7 seconds
+Total CPU time summed for all threads             :       88.9 seconds
+
+Elapsed time spent pre-processing model (/PREP7)  :        0.1 seconds
+Elapsed time spent solution - preprocessing       :        0.3 seconds
+Elapsed time spent computing solution             :      157.0 seconds
+Elapsed time spent solution - postprocessing      :        0.1 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+Equation solver computational rate                :    56094.2 Mflops
+
+Maximum total memory used                         :     1295.0 MB
+Maximum total memory allocated                    :     5184.0 MB
+Maximum total memory available                    :         32 GB
+
++------ E N D   D I S T R I B U T E D   A N S Y S   S T A T I S T I C S -------+
+
+
+ *---------------------------------------------------------------------------*
+ |                                                                           |
+ |                       DISTRIBUTED ANSYS RUN COMPLETED                     |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Ansys Release 17.0          Build 17.0         UP20151214     WINDOWS x64 |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ | Database Requested(-db)  1024 MB    Scratch Memory Requested      1024 MB |
+ | Maximum Database Used      26 MB    Maximum Scratch Memory Used    269 MB |
+ |                                                                           |
+ |---------------------------------------------------------------------------|
+ |                                                                           |
+ |        CP Time      (sec) =         88.938       Time  =  10:02:03        |
+ |        Elapsed Time (sec) =        159.000       Date  =  11/18/2024      |
+ |                                                                           |
+ *---------------------------------------------------------------------------*

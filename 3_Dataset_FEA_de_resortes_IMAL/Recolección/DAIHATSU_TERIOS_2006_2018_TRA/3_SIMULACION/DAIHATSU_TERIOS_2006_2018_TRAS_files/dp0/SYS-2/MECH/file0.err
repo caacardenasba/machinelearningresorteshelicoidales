@@ -1,0 +1,60 @@
+/COM,ANSYS RELEASE Release 17.0      BUILD 17.0      UP20151214       10:52:36
+
+ *** WARNING ***                         CP =       0.469   TIME= 10:52:37
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         CP =       0.469   TIME= 10:52:37
+ Material number 31 (used by element 6544 ) should normally have at      
+ least one MP or one TB type command associated with it.  Output of      
+ energy by material may not be available.                                
+
+ *** WARNING ***                         CP =       1.125   TIME= 10:52:37
+ Maximum friction coefficient 0.3 is defined in the model.  Switch to    
+ the unsymmetric solver (NROP,UNSYM) instead if convergence difficulty   
+ is encountered.                                                         
+
+ *** WARNING ***                         CP =       1.234   TIME= 10:52:37
+ Overconstraint may occur for Lagrange multiplier or MPC based contact   
+ algorithm.                                                              
+
+ *** WARNING ***                         CP =       1.234   TIME= 10:52:37
+ Boundary conditions, coupling, and/or constraint equations have been    
+ applied on certain contact nodes (for example 24377).                   
+
+ *** WARNING ***                         CP =       2.500   TIME= 10:52:38
+ Coefficient ratio exceeds 1.0e8 - Check results.                        
+
+ *** WARNING ***                         CP =       2.609   TIME= 10:52:39
+ Pivoting has been activated for the Distributed Sparse Matrix Solver .  
+ The memory required may greatly exceed the predicted amount.  In that   
+ event, use the DSPOPTION command to change the memory mode and/or       
+ memory size used by the Distributed Sparse Matrix Solver.               
+
+ *** WARNING ***                         CP =      20.797   TIME= 10:53:11
+ Coefficient ratio exceeds 1.0e8 - Check results.                        
+
+ *** WARNING ***                         CP =      20.969   TIME= 10:53:11
+ Pivoting has been activated for the Distributed Sparse Matrix Solver .  
+ The memory required may greatly exceed the predicted amount.  In that   
+ event, use the DSPOPTION command to change the memory mode and/or       
+ memory size used by the Distributed Sparse Matrix Solver.               
+
+ *** WARNING ***                         CP =     108.344   TIME= 10:56:42
+ Material number 31 (used by element 6544 ) should normally have at      
+ least one MP or one TB type command associated with it.  Output of      
+ energy by material may not be available.                                
+
+ *** WARNING ***                         CP =     146.297   TIME= 10:57:57
+ For load step 2 substep 15, stabilization force norm = 16.1512475 is    
+ large compared to the internal force norm 26.6065084.  Please check     
+ the result carefully.                                                   
+
+ *** WARNING ***                         CP =     146.469   TIME= 10:57:58
+ During this session the elapsed time exceeds the CPU time by 125%.      
+ Often this indicates either a lack of physical memory (RAM) required    
+ to efficiently handle this simulation or it indicates a particularly    
+ slow hard drive configuration.  This simulation can be expected to run  
+ faster on identical hardware if additional RAM or a faster hard drive   
+ configuration is made available.  For more details, please see the      
+ ANSYS Performance Guide which is part of the ANSYS Help system.         

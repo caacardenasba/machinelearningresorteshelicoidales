@@ -1,0 +1,96 @@
+﻿# encoding: utf-8
+# Release 17.0
+SetScriptVersion(Version="17.0.323")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+CleanSystem(Systems=[system1])
+system1.Delete()
+template2 = GetTemplate(TemplateName="EngData")
+system2 = template2.CreateSystem()
+system3 = template1.CreateSystem(
+    Position="Right",
+    RelativeTo=system2)
+engineeringDataComponent1 = system3.GetComponent(Name="Engineering Data")
+engineeringDataComponent2 = system2.GetComponent(Name="Engineering Data")
+engineeringDataComponent1.ReplaceWithShare(
+    TargetSystem=system3,
+    ComponentToShare=engineeringDataComponent2,
+    SourceSystem=system2)
+geometry1 = system3.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/aprietop/Documents/2024/DAIHATSU TERIOS 2006-2018 TRAS/MODELADO/RESORTE DAIHATSU TERIOS II TRAS.stp")
+favorites1 = EngData.LoadFavoriteItems()
+library1 = EngData.OpenLibrary(
+    Name="GENERAL MATERIAL ANSYS 14",
+    Source="C:/Users/aprietop/Documents/LIBRERIAS Y PLANTILLAS/LIBRERIA MATERIALES ANSYS/GENERAL MATERIAL ANSYS 14.xml")
+engineeringData1 = system2.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.ImportMaterial(
+    Name="SAE 9254 NL 50 HRC SHOT PEENING BL",
+    Source="C:/Users/aprietop/Documents/LIBRERIAS Y PLANTILLAS/LIBRERIA MATERIALES ANSYS/GENERAL MATERIAL ANSYS 14.xml")
+matl2 = engineeringData1.ImportMaterial(
+    Name="Steel 30MnB5 Agricultural",
+    Source="C:/Users/aprietop/Documents/LIBRERIAS Y PLANTILLAS/LIBRERIA MATERIALES ANSYS/GENERAL MATERIAL ANSYS 14.xml")
+matl3 = engineeringData1.ImportMaterial(
+    Name="SAE 9254 NL 50 HRC SHOT PEENING LINEAR",
+    Source="C:/Users/aprietop/Documents/LIBRERIAS Y PLANTILLAS/LIBRERIA MATERIALES ANSYS/GENERAL MATERIAL ANSYS 14.xml")
+modelComponent1 = system3.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system3.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+model1.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+system4 = system3.Duplicate(RelativeTo=system3)
+engineeringDataComponent3 = system4.GetComponent(Name="Engineering Data")
+engineeringDataComponent3.ReplaceWithShare(
+    TargetSystem=system4,
+    ComponentToShare=engineeringDataComponent2,
+    SourceSystem=system2)
+geometry2 = system4.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/aprietop/Documents/2024/DAIHATSU TERIOS 2006-2018 TRAS/MODELADO/RESORTE DAIHATSU TERIOS II TRAS IMAL.stp")
+modelComponent2 = system4.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model2 = system4.GetContainer(ComponentName="Model")
+model2.Edit()
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
+model1.Edit()
+Save(Overwrite=True)
+model2.Exit()
+model1.Exit()
+Save(Overwrite=True)
+model1.Edit()
+system3.DisplayText = "OEM"
+system4.DisplayText = "IMAL"
+parameter1 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="(P9-P7)/(P4-P2)",
+    DisplayText="Output Parameter")
+parameter1.DisplayText = "RATA OEM"
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
+model2.Edit()
+parameter2 = Parameters.CreateParameter(
+    IsOutput=True,
+    Expression="(P9-P7)/(P4-P2)",
+    DisplayText="Output Parameter")
+designPoint1 = Parameters.GetDesignPoint(Name="0")
+designPoint1.SetParameterExpression(
+    Parameter=parameter2,
+    Expression="(P25-P23)/(P20-P18)")
+model1.Edit()
+model1.Edit()
+geometry2.UpdateCAD()
+modelComponent2.Refresh()
+model2.Edit()
+geometry1.UpdateCAD()
+modelComponent1.Refresh()
+model1.Edit()
+backgroundSession1 = UpdateAllDesignPoints(DesignPoints=[designPoint1])
+model1.Edit()
+model1.Exit()
+Save(Overwrite=True)
