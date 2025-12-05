@@ -1,0 +1,76 @@
+name: Cleanup caches 🧹
+on:
+  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
+
+permissions: {}
+
+jobs:
+  cleanup:
+    name: Cleanup caches
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Check out code
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: Cleanup PR caches
+        if: github.event_name != 'workflow_dispatch'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh extension install actions/gh-actions-cache
+
+          BRANCH="refs/pull/${PR_NUMBER}/merge"
+
+          echo "Fetching list of cache key"
+          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+
+          ## Setting this to not fail the workflow while deleting cache keys. 
+          set +e
+          echo "Deleting caches..."
+          
+          while [ ! -z "$cacheKeysForPR" ];
+          do
+            for cacheKey in $cacheKeysForPR
+            do
+                gh actions-cache delete $cacheKey -R $REPO -B $BRANCH --confirm && echo "Deleting cache with key: $cacheKey"
+            done
+          
+            cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+          done
+          echo "Done"
+        
+      - name: Cleanup by workflow dispatch
+        if: github.event_name == 'workflow_dispatch'
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            REPO: ${{ github.repository }}
+        run: |
+            gh extension install actions/gh-actions-cache
+
+            echo "The repository is: $REPO"
+
+            echo "Fetching list of cache key"
+            cacheKeysForPR=$(gh actions-cache list -R $REPO | cut -f 1 )
+
+            ## Setting this to not fail the workflow while deleting cache keys. 
+            set +e
+            echo "Deleting caches..."
+            while [ ! -z "$cacheKeysForPR" ];
+            do
+              for cacheKey in $cacheKeysForPR
+              do
+                  gh actions-cache delete $cacheKey -R $REPO --confirm && echo "Deleting cache with key: $cacheKey"
+              done
+
+              cacheKeysForPR=$(gh actions-cache list -R $REPO | cut -f 1 )
+            done
+            echo "Done"

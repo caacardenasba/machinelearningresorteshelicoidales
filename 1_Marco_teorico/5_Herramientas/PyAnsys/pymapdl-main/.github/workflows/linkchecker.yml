@@ -1,0 +1,46 @@
+name: LinkCheck - All files 🔗
+
+on:
+  schedule:
+    - cron: "0 5 * * 0" # Runs at 05:00 on Sunday.
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  linkcheck:
+    name: "Check Links"
+    uses: ./.github/workflows/doc-build.yml
+    permissions:
+      contents: read
+      packages: read
+    with:
+      builder: linkcheck
+      build_pdf: false
+      build_cheatsheet: false
+      use_cache_examples: false
+      use_cache_doc_build: false
+      use_cache_autosummary: false
+    secrets:
+      license-server: ${{ secrets.LICENSE_SERVER }}
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+
+  notify:
+    name: "Notify failed build"
+    needs: [linkcheck]
+    if: failure() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: "Open issue"
+        uses: jayqi/failed-build-issue-action@1a893bbf43ef1c2a8705e2b115cd4f0fe3c5649b #v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          title-template: "Failed scheduled linkcheck 🔗 build"
+          label-name: "Build failed"

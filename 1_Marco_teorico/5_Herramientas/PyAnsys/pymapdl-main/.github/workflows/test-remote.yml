@@ -1,0 +1,378 @@
+# This action starts a MAPDL instance in a Docker container and runs the PyMAPDL test suite against it
+name: |
+  Test PyMAPDL with remote MAPDL instances
+
+on:
+  workflow_call:
+
+    inputs:
+      mapdl-version:
+        description: |
+          MAPDL version to test.
+        required: true
+        type: string
+
+      file-name:
+        description: |
+          Name of the file to save the logs.
+        required: true
+        type: string
+
+      upload-logs:
+        description: |
+          If true, logs will be uploaded encrypted. Set to false to disable log upload (for security).
+        required: false
+        type: boolean
+        default: false
+
+      python-version:
+        description: |
+          Python version to use.
+        required: false
+        type: string
+        default: "3.12"
+
+    secrets:
+      username:
+        description: |
+          Username for the GitHub container registry.
+        required: true
+
+      token:
+        description: |
+          Token for GitHub.
+        required: true
+
+      license-server:
+        description: |
+          License server for ANSYS MAPDL
+        required: true
+
+      codecov-token:
+        description: |
+          Token for Codecov.
+        required: true
+
+      log-encryption-key:
+        description: |
+          Encryption key for sensitive log files.
+        required: false
+
+permissions: {}
+
+jobs:
+  test-remote:
+    name: Test PyMAPDL with remote MAPDL instances
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    env:
+      ON_CI: True
+      ON_LOCAL: FALSE
+      ON_UBUNTU: FALSE
+      PYANSYS_OFF_SCREEN: True
+      PYMAPDL_DEBUG_TESTING: True
+      PYMAPDL_START_INSTANCE: FALSE
+      PYMAPDL_PORT: 21000  # default won't work on GitHub runners
+      PYMAPDL_PORT2: 21001  # for the pool testing and default won't work on GitHub runners
+      PYMAPDL_DB_PORT: 21002  # default won't work on GitHub runners
+      PYMAPDL_DB_PORT2: 21003  # default won't work on GitHub runners
+      DPF_DOCKER_IMAGE: ghcr.io/ansys/mapdl:v25.2-rocky-dpf-standalone
+      DPF_PORT: 21014
+      DPF_PORT_INTERNAL: 50055 # Internal port for DPF server
+      DPF_PORT2: 21015
+      DPF_START_SERVER: False
+      HAS_DPF: True
+      TEST_DPF_BACKEND: false
+      PYTEST_ARGUMENTS: '--ignore_image_cache'
+      MAPDL_PACKAGE: ghcr.io/ansys/mapdl
+
+    steps:
+      - name: "Freeing some space and show space consumption (pre-test)"
+        shell: bash
+        run: |
+          echo "Deleting CodeQL..."
+          rm -rf /__t/CodeQL || echo "CodeQL not found"
+
+          echo "Disk space:"
+          df -h
+
+      - name: "Install Git and checkout project"
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: "Login in Github container registry"
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef #v3.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ secrets.username }}
+          password: ${{ secrets.token }}
+
+      - name: "Getting SMP/DMP mode"
+        id: distributed_mode
+        shell: bash
+        env:
+          image: ${{ inputs.mapdl-version }}
+        run: |
+          export distributed_mode="smp"
+          if [[ $image == *".1."* ]]; then
+            export distributed_mode="dmp";
+          fi
+          echo "Distributed mode: $distributed_mode"
+          echo "distributed_mode=$(echo $distributed_mode)" >> $GITHUB_OUTPUT
+
+      - name: "Get if running on Ubuntu"
+        id: ubuntu_check
+        shell: bash
+        env:
+          MAPDL_VERSION: ${{ inputs.mapdl-version }}
+        run: |
+          export ON_SAME_CONTAINER=false
+
+          if [[ "${MAPDL_VERSION}" == *"ubuntu"* ]];
+            then export ON_UBUNTU=true; export TAG_UBUNTU="ubuntu";
+            else export ON_UBUNTU=false; export TAG_UBUNTU="centos";
+          fi
+
+          if [[ "${MAPDL_VERSION}" == *"cicd"* ]]; then
+            echo "CICD MAPDL version detected, testing DPF backend for results module.";
+            echo "TEST_DPF_BACKEND=true" >> $GITHUB_ENV;
+
+            echo "It should be run on the same container as MAPDL";
+            export ON_SAME_CONTAINER=true;
+          fi
+
+          echo "ON_UBUNTU: $ON_UBUNTU"
+          echo "TAG_UBUNTU: $TAG_UBUNTU"
+          echo "ON_SAME_CONTAINER: $ON_SAME_CONTAINER"
+
+          echo "ON_UBUNTU=$(echo $ON_UBUNTU)" >> $GITHUB_OUTPUT
+          echo "TAG_UBUNTU=$(echo $TAG_UBUNTU)" >> $GITHUB_OUTPUT
+          echo "ON_SAME_CONTAINER=$(echo $ON_SAME_CONTAINER)" >> $GITHUB_OUTPUT
+
+      - name: "Get if running student version"
+        id: student_check
+        shell: bash
+        env:
+          MAPDL_VERSION: ${{ inputs.mapdl-version }}
+        run: |
+          if [[ "${MAPDL_VERSION}" == *"student"* ]]; 
+            then export ON_STUDENT=true; export TAG_STUDENT="student";
+            else export ON_STUDENT=false; export TAG_STUDENT="non-student";
+          fi
+          echo "ON_STUDENT: $ON_STUDENT"
+          echo "TAG_STUDENT: $TAG_STUDENT"
+          echo "ON_STUDENT=$(echo $ON_STUDENT)" >> $GITHUB_OUTPUT
+          echo "TAG_STUDENT=$(echo $TAG_STUDENT)" >> $GITHUB_OUTPUT
+
+      - name: "Pull, launch, and validate MAPDL service"
+        id: start_mapdl
+        env:
+          LICENSE_SERVER: ${{ secrets.license-server }}
+          MAPDL_VERSION: ${{ inputs.mapdl-version }}
+          DISTRIBUTED_MODE: ${{ steps.distributed_mode.outputs.distributed_mode }}
+          MAPDL_PACKAGE: ${{ env.MAPDL_PACKAGE }}
+          DPF_PORT_INTERNAL: ${{ env.DPF_PORT_INTERNAL }}
+        shell: bash
+        run: |
+          echo "Launching first MAPDL instance..."
+          export INSTANCE_NAME=MAPDL_0
+          export RUN_DPF_SERVER=true
+          .ci/start_mapdl.sh &> mapdl_launch_0.log & export DOCKER_PID_0=$!
+
+          echo "Launching a second instance for MAPDL pool testing..."
+          export RUN_DPF_SERVER=false
+          export PYMAPDL_PORT=${PYMAPDL_PORT2}
+          export PYMAPDL_DB_PORT=${PYMAPDL_DB_PORT2}
+          export INSTANCE_NAME=MAPDL_1
+          export DPF_PORT=${DPF_PORT2}
+          .ci/start_mapdl.sh &> mapdl_launch_1.log & export DOCKER_PID_1=$!
+
+          echo "Launching MAPDL service 0 at PID: $DOCKER_PID_0"
+          echo "Launching MAPDL service 1 at PID: $DOCKER_PID_1"
+          echo "DOCKER_PID_0=$(echo $DOCKER_PID_0)" >> $GITHUB_OUTPUT
+          echo "DOCKER_PID_1=$(echo $DOCKER_PID_1)" >> $GITHUB_OUTPUT
+
+      - name: "Start DPF server on a separate container"
+        shell: bash
+        if: ${{ steps.ubuntu_check.outputs.ON_SAME_CONTAINER == 'false' }}
+        env:
+          ANSYS_DPF_ACCEPT_LA: Y
+        run: |
+          docker pull $DPF_DOCKER_IMAGE && docker run -d --name dpfserver --env ANSYS_DPF_ACCEPT_LA=Y -p ${DPF_PORT}:50052 $DPF_DOCKER_IMAGE && echo "DPF Server active on port ${DPF_PORT}." > log_dpf.log &
+
+      - name: "Getting files change filters"
+        uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 #v3.0.2
+        id: changes
+        with:
+          filters: |
+            workflows:
+              - '.github/workflows/**'
+
+      - name: "Setup Python with cache"
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c #v6.0.0
+        if:  steps.changes.outputs.workflows != 'true'
+        with:
+          cache: 'pip'
+          python-version: ${{ inputs.python-version }}
+
+      - name: "Setup Python without cache"
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c #v6.0.0
+        if: steps.changes.outputs.workflows == 'true'
+        with:
+          python-version: ${{ inputs.python-version }}
+
+      - name: "Install os packages"
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install libgl1 libglx-mesa0 xvfb graphviz
+
+      - name: "Test virtual framebuffer"
+        shell: bash
+        run: |
+          ls -laR .
+          pip install -r .ci/requirements_test_xvfb.txt
+          xvfb-run python .ci/display_test.py
+
+      - name: Install ansys-mapdl-core
+        shell: bash
+        run: |
+          python -m pip install build
+          python -m build
+          python -m pip install dist/*.whl
+          xvfb-run python -c "from ansys.mapdl import core as pymapdl; print(pymapdl.Report())"
+
+      - name: "Unit testing requirements installation"
+        shell: bash
+        run: |
+          python -m pip install .[tests]
+
+      - name: "Waiting for the services to be up"
+        shell: bash
+        env:
+          PYMAPDL_PORT: ${{ env.PYMAPDL_PORT }}
+          PYMAPDL_PORT2: ${{ env.PYMAPDL_PORT2 }}
+          MAPDL_INSTANCE: MAPDL_0
+        run: |
+          docker ps > docker_ps_start.log || echo "Failed to get the docker images from the docker container"
+          (docker exec "${MAPDL_INSTANCE}" /bin/bash -c "ps aux > docker_processes_start.log") || echo "Failed to get the processes from the docker container"
+
+          .ci/waiting_services.sh
+
+      - name: "Unit testing"
+        env:
+          DISTRIBUTED_MODE: ${{ steps.distributed_mode.outputs.distributed_mode }}
+          ON_UBUNTU: ${{ steps.ubuntu_check.outputs.ON_UBUNTU }}
+          ON_STUDENT: ${{ steps.student_check.outputs.ON_STUDENT }}
+          file_name: "${{ inputs.file-name }}"
+          MAPDL_VERSION: "${{ inputs.mapdl-version }}"
+          PYTEST_ARGUMENTS: "${{ env.PYTEST_ARGUMENTS }}"
+        shell: bash
+        run: |
+          echo "ON_UBUNTU: $ON_UBUNTU"
+          echo "ON_STUDENT: $ON_STUDENT"
+          xvfb-run pytest \
+            ${PYTEST_ARGUMENTS} \
+            --report-log=$file_name.jsonl \
+            --cov-report=xml:$file_name.xml
+
+      - name: "Print amount of restarts"
+        if: always()
+        run: |
+          N_RESTART=$(docker inspect --format '{{ .RestartCount }}'  MAPDL_0)
+          echo "Number of restarts in the MAPDL_0 container: $N_RESTART"
+          N_RESTART=$(docker inspect --format '{{ .RestartCount }}'  MAPDL_1)
+          echo "Number of restarts in the MAPDL_1 container: $N_RESTART"
+
+      - name: "Upload pytest reports to GitHub"
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 #v5.0.0
+        with:
+          name: "reports-${{ inputs.file-name }}"
+          path: ./${{ inputs.file-name }}.jsonl
+
+      - uses: codecov/codecov-action@5a1091511ad55cbe89839c7260b706298ca349f7 #v5.5.1
+        name: "Upload coverage to Codecov"
+        with:
+          token: ${{ secrets.codecov-token }} # required
+          name: "${{ inputs.file-name }}.xml"
+          flags: remote-${{ steps.ubuntu_check.outputs.TAG_UBUNTU }}-${{ inputs.mapdl-version }}-${{ steps.distributed_mode.outputs.distributed_mode }}-${{ steps.student_check.outputs.TAG_STUDENT }}
+
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 #v5.0.0
+        with:
+          name: "${{ inputs.file-name }}.xml"
+          path: "./${{ inputs.file-name }}.xml"
+
+      - name: "Check package"
+        shell: bash
+        run: |
+          pip install twine
+          twine check dist/*
+
+      - name: "Upload wheel and binaries"
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 #v5.0.0
+        with:
+          name: PyMAPDL-packages-${{ inputs.mapdl-version }}
+          path: dist/
+          retention-days: 7
+
+      - name: "Collect logs on failure"
+        if: always()
+        env:
+          MAPDL_VERSION: ${{ inputs.mapdl-version }}
+          MAPDL_INSTANCE: MAPDL_0
+          LOG_NAMES: logs-${{ inputs.file-name }}
+        shell: bash
+        run: |
+          .ci/collect_mapdl_logs_remote.sh
+
+      - name: "Encrypt and upload logs to GitHub"
+        if: always() && inputs.upload-logs == true
+        env:
+          ENCRYPTION_KEY: ${{ secrets.log-encryption-key }}
+          FILE_NAME: ${{ inputs.file-name }}
+        shell: bash
+        run: |
+          # Check if logs exist
+          if [ -f "./logs-${FILE_NAME}.tgz" ]; then
+            echo "Encrypting logs..."
+
+            # Encrypt using OpenSSL
+            openssl enc -aes-256-cbc -salt -pbkdf2 \
+              -in ./logs-${FILE_NAME}.tgz \
+              -out ./logs-${FILE_NAME}.tgz.enc \
+              -pass env:ENCRYPTION_KEY
+
+            echo "Logs encrypted successfully"
+            echo "To decrypt locally, use:"
+            echo "openssl enc -aes-256-cbc -d -pbkdf2 -in logs-${FILE_NAME}.tgz.enc -out logs-${FILE_NAME}.tgz -pass pass:YOUR_KEY"
+          else
+            echo "No log file found to encrypt"
+          fi
+
+      - name: "Upload encrypted logs to GitHub"
+        if: always() && inputs.upload-logs == true
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 #v5.0.0
+        with:
+          name: logs-${{ inputs.file-name }}-encrypted
+          path: ./logs-${{ inputs.file-name }}.tgz.enc
+          retention-days: 3
+
+      - name: "Display files structure"
+        if: always()
+        env:
+          MAPDL_INSTANCE: MAPDL_0
+          LOG_NAMES: logs-${{ inputs.file-name }}
+        shell: bash
+        run: |
+          .ci/display_logs_remote.sh
+
+      - name: "Show space consumption (post-test)"
+        if: always()
+        shell: bash
+        run: |
+          echo "Disk space:"
+          df -h

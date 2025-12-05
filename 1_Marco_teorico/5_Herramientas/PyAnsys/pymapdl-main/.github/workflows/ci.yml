@@ -1,0 +1,499 @@
+name: CI
+
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_all_builds:
+        description: 'Run all extended MAPDL build tests'
+        required: true
+        type: boolean
+
+  push:
+    tags:
+      - "v*"
+    branches:
+       - main
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '30 4 * * *'
+
+env:
+  ON_CI: True
+  PROJECT_NAME: 'PyMAPDL'
+  MAIN_PYTHON_VERSION: '3.12'
+  PACKAGE_NAME: 'ansys-mapdl-core'
+  PACKAGE_NAMESPACE: 'ansys.mapdl.core'
+  DOCUMENTATION_CNAME: 'mapdl.docs.pyansys.com'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+permissions: {}
+
+jobs:
+
+  add_labels:
+    name: Adding assignee if there is none.
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions-ecosystem/action-add-assignees@a5b84af721c4a621eb9c7a4a95ec20a90d0b88e9 #v1.0.1
+        if: |
+          (
+          github.event_name == 'pull_request' &&
+          github.actor != 'dependabot[bot]' &&
+          github.actor != 'pyansys-ci-bot' &&
+          toJson(github.event.pull_request.assignees) == '[]'
+          )
+        with:
+          github_token: ${{ secrets.github_token }}
+          assignees: ${{ github.actor }}
+
+  update-changelog:
+    name: "Update CHANGELOG (on release)"
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: ansys/actions/doc-deploy-changelog@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
+          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+
+
+  pull-request-name:
+    if: github.event_name == 'pull_request'
+    name: Check the name of the pull-request
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - name: Check pull-request name
+        uses: ansys/actions/check-pr-title@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+  doc-style:
+    name: "Documentation style ${{ matrix.folder }}"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    strategy:
+      matrix:
+        folder: ["doc", "examples"]
+    steps:
+      - name: "Ansys documentation style checks"
+        uses: ansys/actions/doc-style@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          files: ${{ matrix.folder }}
+          vale-config: ${{ matrix.folder }}/.vale.ini
+          vale-version: "3.4.1"
+
+
+  smoke-tests:
+    name: "${{ matrix.os }} | Py ${{ matrix.python-version }} | Rel ${{ matrix.should-release }}"
+    runs-on: ${{ matrix.os }}
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    timeout-minutes: 20
+    permissions: {}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python-version: ['3.10', '3.11', '3.12']
+        # Only perform wheelhouse builds for macOS when releasing
+        should-release: 
+          - ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags') }}
+        exclude:
+          - should-release: false
+            os: macos-latest
+    steps:
+      - name: "Build wheelhouse and perform smoke test"
+        id: build-wheelhouse
+        uses: ansys/actions/build-wheelhouse@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          library-name: ${{ env.PACKAGE_NAME }}
+          operating-system: ${{ matrix.os }}
+          python-version: ${{ matrix.python-version }}
+          check-licenses: true
+
+      - name: "Importing library"
+        env:
+          PYTHON_ACTIVATE: ${{ steps.build-wheelhouse.outputs.activate-venv }}
+        run: |
+          ${PYTHON_ACTIVATE}
+          python -c "from ansys.mapdl import core as pymapdl; print(pymapdl.Report())"
+
+      - name: "Checking plotting support"
+        env:
+          PYTHON_ACTIVATE: ${{ steps.build-wheelhouse.outputs.activate-venv }}
+        run: |
+          ${PYTHON_ACTIVATE}
+          python -c "from pyvista.plotting import system_supports_plotting; print('System support plotting ' + str(system_supports_plotting()))"
+
+
+  check-vulnerabilities:
+    name: "Check library vulnerabilities"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: ansys/actions/check-vulnerabilities@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+          token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
+          python-package-name: ${{ env.PACKAGE_NAME }}
+          dev-mode: ${{ github.ref != 'refs/heads/main' }}
+
+  actions-security:
+    name: "Check actions security"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ansys/actions/check-actions-security@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          generate-summary: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+          auditing-level: 'high'
+          trust-ansys-actions: true
+
+  docs-build:
+    name: "Build documentation"
+    needs: doc-style
+    uses: ./.github/workflows/doc-build.yml
+    permissions:
+      contents: read
+      packages: read
+    secrets:
+      license-server: ${{ secrets.LICENSE_SERVER }}
+      username: ${{ github.actor }}
+      password: ${{ secrets.GITHUB_TOKEN }}
+  
+
+  doc-deploy-pr:
+    name: "Deploy PR documentation"
+    runs-on: ubuntu-latest
+    needs: docs-build
+    if: contains(github.event.pull_request.labels.*.name, 'deploy pr docs')
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: ansys/actions/doc-deploy-pr@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+          maximum-pr-doc-deployments: 3
+
+
+  build-test-remote-matrix:
+    name: "Build remote test matrix"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+
+    steps:
+      - name: "Install Git and checkout project"
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: Build matrix for remote testing
+        uses: ./.github/actions/build-matrix
+        id: set-matrix
+        with:
+          token_teams_user_read: ${{ secrets.TOKEN_TEAMS_USER_READ }}
+          local: false
+          run_all_builds: ${{ inputs.run_all_builds }}
+
+
+  build-test-remote:
+    name: "Remote: ${{ matrix.mapdl-version }}"
+    needs: [smoke-tests, build-test-remote-matrix]
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.build-test-remote-matrix.outputs.matrix) }}
+    permissions:
+      contents: read
+      packages: read
+    uses: ./.github/workflows/test-remote.yml
+    secrets:
+      license-server: ${{ secrets.LICENSE_SERVER }}
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
+      username: ${{ github.actor }}
+      log-encryption-key: ${{ secrets.LOG_ENCRYPTION_KEY }}
+    with:
+      mapdl-version: "${{ matrix.mapdl-version }}"
+      file-name: "remote-${{ matrix.mapdl-version }}"
+      upload-logs: false
+
+  build-test-local-matrix:
+    name: "Build test matrix for minimal and local"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: "Install Git and checkout project"
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: Build matrix for local, minimal and console testing
+        uses: ./.github/actions/build-matrix
+        id: set-matrix
+        with:
+          token_teams_user_read: ${{ secrets.TOKEN_TEAMS_USER_READ }}
+          local: true
+          run_all_builds: ${{ inputs.run_all_builds }}
+
+
+  build-test-ubuntu-local:
+    name: "Local: ${{ matrix.mapdl-version }}"
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: [smoke-tests, build-test-local-matrix]
+    uses: ./.github/workflows/test-local.yml
+    permissions:
+      contents: read
+      packages: read
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.build-test-local-matrix.outputs.matrix) }}
+    secrets:
+      license-server: ${{ secrets.LICENSE_SERVER }}
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
+      username: ${{ github.actor }}
+      log-encryption-key: ${{ secrets.LOG_ENCRYPTION_KEY }}
+    with:
+      testing-minimal: false
+      pytest-arguments: '--reset_only_failed  --add_missing_images'
+      mapdl-version: ${{ matrix.mapdl-version }}
+      file-name: "local-${{ matrix.mapdl-version }}"
+      tags: "local"
+      latest-version: "252"
+      test_dpf: ${{ contains(matrix.mapdl-version, 'cicd') && !contains(matrix.mapdl-version, '24') }}
+      upload-logs: false
+
+
+  build-test-ubuntu-minimal:
+    name: "Local-min: ${{ matrix.mapdl-version }}"
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: [build-test-ubuntu-local, build-test-remote]
+    uses: ./.github/workflows/test-local.yml
+    permissions:
+      contents: read
+      packages: read
+    strategy:
+      fail-fast: false
+      matrix:
+        mapdl-version: ['v25.2-ubuntu-cicd', 'v25.1-ubuntu-cicd']
+    secrets:
+      license-server: ${{ secrets.LICENSE_SERVER }}
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
+      username: ${{ github.actor }}
+      log-encryption-key: ${{ secrets.LOG_ENCRYPTION_KEY }}
+    with:
+      testing-minimal: true
+      pytest-arguments: ''
+      mapdl-version: ${{ matrix.mapdl-version }}
+      file-name: "${{ matrix.mapdl-version }}-minimal"
+      tags: "local,minimal"
+      latest-version: "252"
+      test_dpf: false
+      upload-logs: false
+
+
+  build-test-ubuntu-console:
+    name: "Local-min-console: ${{ matrix.mapdl-version }}"
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: [build-test-ubuntu-local, build-test-remote]
+    permissions:
+      contents: read
+      packages: read
+    uses: ./.github/workflows/test-local.yml
+    strategy:
+      fail-fast: false
+      matrix:
+        mapdl-version: ['v25.2-ubuntu-cicd', 'v25.1-ubuntu-cicd']
+    secrets:
+      license-server: ${{ secrets.LICENSE_SERVER }}
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
+      username: ${{ github.actor }}
+      log-encryption-key: ${{ secrets.LOG_ENCRYPTION_KEY }}
+    with:
+      latest-version: "252"
+      mapdl-version: ${{ matrix.mapdl-version }}
+      testing-minimal: false
+      on-console: true
+      pytest-arguments: '-k console'
+      file-name: "${{ matrix.mapdl-version }}-console"
+      tags: "local,console"
+      test_dpf: false
+      upload-logs: false
+
+  package:
+    name: "Package library"
+    needs: [build-test-remote, build-test-ubuntu-local, build-test-ubuntu-minimal, docs-build]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: "Build library source and wheel artifacts"
+        uses: ansys/actions/build-library@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          library-name: ${{ env.PACKAGE_NAME }}
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
+
+
+  release:
+    name: "Release project"
+    if: ${{ github.event_name == 'push' && contains(github.ref, 'refs/tags') }}
+    needs: [package, update-changelog]
+    runs-on: ubuntu-latest
+    # Specifying a GitHub environment is optional, but strongly encouraged
+    environment: release
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - name: "Download the library artifacts from build-library step"
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+        with:
+          name: ${{ env.PACKAGE_NAME }}-artifacts
+          path: ${{ env.PACKAGE_NAME }}-artifacts
+
+      - name: "Display structure of downloaded files"
+        run: ls -Rla
+
+      - name: "Release to PyPI using trusted publisher"
+        uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+        with:
+          repository-url: "https://upload.pypi.org/legacy/"
+          print-hash: true
+          packages-dir: ${{ env.PACKAGE_NAME }}-artifacts
+          skip-existing: false
+
+      - name: "Release to GitHub"
+        uses: ansys/actions/release-github@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          library-name: ${{ env.PACKAGE_NAME }}
+          additional-artifacts: "minimum_requirements.txt"
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
+  upload-docs-release:
+    name: "Upload release documentation"
+    if: github.event_name == 'push' && contains(github.ref, 'refs/tags')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: [release]
+    steps:
+      - name: "Deploy the stable documentation"
+        uses: ansys/actions/doc-deploy-stable@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          render-last: '5'
+          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+
+
+  upload-dev-docs:
+    name: "Upload dev documentation"
+    if: github.ref == 'refs/heads/main' && !contains(github.ref, 'refs/tags')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: [docs-build]
+    steps:
+      - name: "Deploy the latest documentation"
+        uses: ansys/actions/doc-deploy-dev@21c9de9bee9692173780696d4a39964f20b9cfa3 #v10.1.5
+        with:
+          cname: ${{ env.DOCUMENTATION_CNAME }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bot-user: ${{ secrets.PYANSYS_CI_BOT_USERNAME }}
+          bot-email: ${{ secrets.PYANSYS_CI_BOT_EMAIL }}
+
+
+  notify:
+    name: "Notify failed build"
+    needs: [smoke-tests, docs-build, build-test-remote, build-test-ubuntu-local, build-test-ubuntu-minimal]
+    if: failure() && github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: "Open issue"
+        uses: jayqi/failed-build-issue-action@1a893bbf43ef1c2a8705e2b115cd4f0fe3c5649b #v1.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          title-template: "Failed scheduled build"
+          label-name: "Build failed"
+
+
+  test_julia:
+    name: "Julia ${{ matrix.julia-version }} | ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    if: github.ref != 'refs/heads/main' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    strategy:
+      fail-fast: false
+      matrix:
+        julia-version: ['1.10.3', '1.10.4']
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: "Run Julia testing"
+        uses: ./.github/actions/test-julia
+        with:
+          julia-version: ${{ matrix.julia-version }}
+
+
+  pytest-summary:
+    name: Pytest summary for all the test jobs
+    needs: [
+      build-test-remote, build-test-ubuntu-local, build-test-ubuntu-minimal, build-test-ubuntu-console
+      ]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - name: "Install Git and checkout project"
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 #v6.0.0
+        with:
+          persist-credentials: false
+
+      - name: "Run Pytest-summary action"
+        uses: ./.github/actions/pytest-summary
+        with:
+          python-version: ${{ env.MAIN_PYTHON_VERSION }}
